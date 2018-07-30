@@ -1,0 +1,18 @@
+/*
+    Workspace styling.
+*/
+
+#workspaceAnchorPane {
+    -fx-background-color: #bbb;
+    -fx-background-image: url("/img/wBackground.png");
+    -fx-background-repeat: repeat;   
+    -fx-background-position: 0 0;
+
+}
+
+#workspacePane {
+}
+
+#layerController {
+    -fx-background-color: #bbb;
+}
