@@ -1,0 +1,32 @@
+.root {
+    -fx-focus-color: transparent;
+}
+
+.button {
+    -fx-font-weight: bold;  
+}
+
+.leftMenu {
+}
+
+.floatingScrollbar .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.floatingScrollbar .scroll-bar:vertical .increment-button, .floatingScrollbar .scroll-bar:vertical .decrement-button {
+    -fx-shape: " ";
+    -fx-padding:0;
+} 
+
+.welcome-button {
+    -fx-background-color: linear-gradient(#EEE, #DDD);
+    -fx-border-radius: 3;
+    -fx-border-width: 2;
+    -fx-border-color: white;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.25) , 3 ,0 , 1 , 1 );
+    -fx-cursor: hand;
+}
+.welcome-button:hover {
+    -fx-background-color: linear-gradient(#DDD, #EEE);
+    -fx-background-size: 55%;
+}

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.HBox?>
+<ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="70.0" prefWidth="1000.0" styleClass="topMenu"
+            vbarPolicy="NEVER" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="myApp.controller.ToolBarController">
+    <content>
+        <HBox spacing="0.0" styleClass="topMenuVBox">
+            <children>
+                <!--<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add"/>-->
+                <GridPane hgap="5.0" prefWidth="120.0" vgap="5.0">
+                    <children>
+                    <Button mnemonicParsing="false" onAction="#newTextButtonAction" prefHeight="33" prefWidth="33"
+                            styleClass="tool-button, text-creation">
+                        <tooltip>
+                            <Tooltip text="Create a new Text"/>
+                        </tooltip>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#newCanvasButtonAction" prefHeight="33" prefWidth="33"
+                            styleClass="tool-button, canvas-creation" GridPane.columnIndex="1">
+                        <tooltip>
+                            <Tooltip text="Create a new painting canvas"/>
+                        </tooltip>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#newImageButtonAction" prefHeight="33" prefWidth="33"
+                            styleClass="tool-button, image-creation" GridPane.columnIndex="2">
+                        <tooltip>
+                            <Tooltip text="Import an image"/>
+                        </tooltip>
+                    </Button>
+                     </children>
+                    <rowConstraints>
+                        <RowConstraints/>
+                    </rowConstraints>
+                </GridPane>
+                <!--<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Draw"/>-->
+                <GridPane hgap="5.0" prefWidth="120.0" vgap="5.0">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#brushButtonAction" prefHeight="33" prefWidth="33"
+                                styleClass="tool-button, brush-icon">
+                            <tooltip>
+                                <Tooltip text="Paint on a canvas"/>
+                            </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#eraserButtonAction" prefHeight="33" prefWidth="33"
+                                styleClass="tool-button, eraser-icon" GridPane.columnIndex="1">
+                            <tooltip>
+                                <Tooltip text="Erase color from a canvas"/>
+                            </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#eyeDropperButtonAction" prefHeight="33"
+                                prefWidth="33" styleClass="tool-button, eye-dropper-icon" GridPane.columnIndex="2">
+                            <tooltip>
+                                <Tooltip text="Pick a color on a layer"/>
+                            </tooltip>
+                        </Button>
+                    </children>
+                    <rowConstraints>
+                        <RowConstraints/>
+                    </rowConstraints>
+                </GridPane>
+                <!--<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Transform"/>-->
+                <GridPane fx:id="gridModificationTools" hgap="5.0" prefWidth="300.0" vgap="5.0">
+                   <!-- <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    </columnConstraints>-->
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#textButtonAction" prefHeight="33" prefWidth="33"
+                                styleClass="tool-button, text-tool-icon">
+                            <tooltip>
+                                <Tooltip text="Edit a text properties"/>
+                            </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#hSymmetryButtonAction" prefHeight="33" prefWidth="33"
+                                styleClass="tool-button, h-symmetry-icon" GridPane.columnIndex="1">
+                            <tooltip>
+                                <Tooltip text="Apply a horizontal symetry"/>
+                            </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#vSymmetryButtonAction" prefHeight="33" prefWidth="33"
+                                styleClass="tool-button, v-symmetry-icon" GridPane.columnIndex="2">
+                            <tooltip>
+                                <Tooltip text="Apply a vertical symetry"/>
+                            </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#selectionButtonAction" prefHeight="33" prefWidth="33"
+                                styleClass="tool-button, selection-icon" GridPane.columnIndex="3">
+                            <tooltip>
+                                <Tooltip text="Select an area on the document"/>
+                            </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#dragButtonAction" prefHeight="33" prefWidth="33"
+                                styleClass="tool-button, translate-icon" GridPane.columnIndex="4">
+                            <tooltip>
+                                <Tooltip text="Move a layer around"/>
+                            </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#rotateButtonAction" prefHeight="33" prefWidth="33"
+                                styleClass="tool-button, rotate-icon" GridPane.columnIndex="5">
+                            <tooltip>
+                                <Tooltip text="Rotate a layer"/>
+                            </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#scaleButtonAction" prefHeight="33" prefWidth="33"
+                                styleClass="tool-button, scale-icon" GridPane.columnIndex="6">
+                            <tooltip>
+                                <Tooltip text="Resize a layer"/>
+                            </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#cropButtonAction" prefHeight="33" prefWidth="33"
+                                styleClass="tool-button, crop-icon" GridPane.columnIndex="7">
+                            <tooltip>
+                                <Tooltip text="Rotate a layer"/>
+                            </tooltip>
+                        </Button>
+                    </children>
+                </GridPane>
+                <!--<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Effect:  "/>-->
+                <GridPane fx:id="gridFilterTools" prefWidth="80.0" prefHeight="33.0" />
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="10.0"/>
+            </padding>
+        </HBox>
+    </content>
+</ScrollPane>

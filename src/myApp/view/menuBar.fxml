@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.HBox?>
+
+<ToolBar prefHeight="40.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.121"
+         xmlns:fx="http://javafx.com/fxml/1" fx:controller="myApp.controller.MenuBarController">
+    <items>
+        <MenuButton mnemonicParsing="false" text="Menu">
+            <items>
+                <MenuItem fx:id="newButton" mnemonicParsing="false" onAction="#newButtonAction" text="New"/>
+                <MenuItem fx:id="openButton" mnemonicParsing="false" onAction="#openButtonAction" text="Open"/>
+                <MenuItem fx:id="saveButton" mnemonicParsing="false" onAction="#saveButtonAction" text="Save"/>
+                <MenuItem fx:id="exportButton" mnemonicParsing="false" onAction="#exportButtonAction" text="Export"/>
+                <MenuItem mnemonicParsing="false" onAction="#resizeButtonAction" text="Resize document"/>
+            </items>
+        </MenuButton>
+        <Separator/>
+        <HBox fx:id="toolSettingsContainer" spacing="10.0"/>
+    </items>
+</ToolBar>
+

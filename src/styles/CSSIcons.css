@@ -1,0 +1,188 @@
+/*
+  CSS Icons
+  CSS file to specify CSS icon classes.
+*/
+.text-icon {
+    -fx-background-image: url("../img/text-icon.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 60%;
+    -fx-background-color: white;
+}
+.canvas-icon {
+    -fx-background-image: url("../img/canvas-icon.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 80%;
+    -fx-background-color: white;
+}
+.image-icon {
+    -fx-background-image: url("../img/image-icon.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 80%;
+    -fx-background-color: white;
+}
+.brush-icon{
+    -fx-background-image: url("../img/brush-icon.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 50%;
+}
+.eraser-icon{
+    -fx-background-image: url("../img/eraser-icon.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 60%;
+}
+.h-symmetry-icon{
+    -fx-background-image: url("../img/h-symmetry-icon.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 50%;
+}
+.v-symmetry-icon{
+    -fx-background-image: url("../img/v-symmetry-icon.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 50%;
+}
+.text-tool-icon {
+    -fx-background-image: url("../img/text-icon.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 45%;
+}
+.eye-dropper-icon{
+    -fx-background-image: url("../img/eye-dropper-icon.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 55%;
+}
+
+.text-creation {
+    -fx-background-image: url("../img/new-text-icon.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 75%;
+}
+
+.image-creation {
+    -fx-background-image: url("../img/new-image-icon.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 75%;
+}
+
+.canvas-creation {
+    -fx-background-image: url("../img/new-canvas-icon.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 75%;
+}
+.trash-icon {
+    -fx-background-image: url("../img/trash-icon.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 55%;
+}
+.down-icon {
+    -fx-background-image: url("../img/down-icon.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 55%;
+}
+.up-icon {
+    -fx-background-image: url("../img/up-icon.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 55%;
+}
+.translate-icon {
+    -fx-background-image: url("../img/translate-icon.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 55%;
+}
+.rotate-icon {
+    -fx-background-image: url("../img/rotate-icon.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 50%;
+}
+.scale-icon {
+    -fx-background-image: url("../img/scale-icon.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 55%;
+}
+.selection-icon {
+    -fx-background-image: url("../img/selection-icon.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 50%;
+}
+.crop-icon {
+    -fx-background-image: url("../img/crop-icon.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 60%;
+}
+
+.hidden-icon {
+    -fx-background-image: url("../img/hidden-eye-icon.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 60%;
+}
+.visible-icon {
+    -fx-background-image: url("../img/visible-eye-icon.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 60%;
+}
+.selected .visible-icon {
+    -fx-background-color: #aaa;
+}
+.deselected .visible-icon {
+    -fx-background-color: #ededed;
+}
+.selected .hidden-icon {
+    -fx-background-color: #888;
+}
+.deselected .hidden-icon {
+    -fx-background-color: #bcbcbc;
+}
+.selected {
+    -fx-background-color: #aaa;
+}
+.deselected {
+    -fx-background-color: #ededed;
+}
+
+.new-document-button {
+    -fx-background-image: url("../img/plus.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 50%;
+}
+.open-document-button {
+    -fx-background-image: url("../img/open-icon.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 50%;
+}
+
+.tool-button {
+    -fx-background-color: linear-gradient(#EEE, #DDD);
+    -fx-border-radius: 3;
+    -fx-border-width: 1;
+    -fx-border-color: #DDD;
+}
+.tool-button.selected {
+    -fx-background-color: linear-gradient(#BBB, #BCBCBC);
+}
+
+.tool-button:pressed {
+    -fx-background-color: linear-gradient(#DDD, #FFF);
+}
