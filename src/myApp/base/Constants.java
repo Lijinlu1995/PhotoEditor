@@ -6,7 +6,7 @@ import javafx.scene.input.KeyCombination;
 
 public class Constants {
 
-    public static double BUTTONS_HEIGHT = 50;
+    public static double BUTTONS_HEIGHT = 33;
     public static double HISTORY_THUMB_WIDTH = 120.;
 
     public static KeyCodeCombination DELETE = new KeyCodeCombination(KeyCode.DELETE);

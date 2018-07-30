@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.layout.HBox?>
-<ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="70.0" prefWidth="1000.0" styleClass="topMenu"
+<ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="46.0" prefWidth="1000.0" styleClass="topMenu"
             vbarPolicy="NEVER" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="myApp.controller.ToolBarController">
     <content>
@@ -36,9 +36,6 @@
                         </tooltip>
                     </Button>
                      </children>
-                    <rowConstraints>
-                        <RowConstraints/>
-                    </rowConstraints>
                 </GridPane>
                 <!--<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Draw"/>-->
                 <GridPane hgap="5.0" prefWidth="120.0" vgap="5.0">
@@ -62,17 +59,61 @@
                             </tooltip>
                         </Button>
                     </children>
-                    <rowConstraints>
-                        <RowConstraints/>
-                    </rowConstraints>
+                </GridPane>
+                <GridPane fx:id="shapeTools" hgap="5.0" prefWidth="300.0" vgap="5.0">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#textButtonAction" prefHeight="33" prefWidth="33"
+                                styleClass="tool-button, line-tool-icon">
+                            <tooltip>
+                                <Tooltip text="Create a new line"/>
+                            </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#hSymmetryButtonAction" prefHeight="33" prefWidth="33"
+                                styleClass="tool-button, rectangular-icon" GridPane.columnIndex="1">
+                            <tooltip>
+                                <Tooltip text="Create a new rectangular"/>
+                            </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#vSymmetryButtonAction" prefHeight="33" prefWidth="33"
+                                styleClass="tool-button, square-icon" GridPane.columnIndex="2">
+                            <tooltip>
+                                <Tooltip text="Create a new square"/>
+                            </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#selectionButtonAction" prefHeight="33" prefWidth="33"
+                                styleClass="tool-button, circle-icon" GridPane.columnIndex="3">
+                            <tooltip>
+                                <Tooltip text="Create a new circle"/>
+                            </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#dragButtonAction" prefHeight="33" prefWidth="33"
+                                styleClass="tool-button, triangle-icon" GridPane.columnIndex="4">
+                            <tooltip>
+                                <Tooltip text="Create a new triangle"/>
+                            </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#rotateButtonAction" prefHeight="33" prefWidth="33"
+                                styleClass="tool-button, oval-icon" GridPane.columnIndex="5">
+                            <tooltip>
+                                <Tooltip text="Create a new oval"/>
+                            </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#scaleButtonAction" prefHeight="33" prefWidth="33"
+                                styleClass="tool-button, roundrect-icon" GridPane.columnIndex="6">
+                            <tooltip>
+                                <Tooltip text="Create a new round rectangular"/>
+                            </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#cropButtonAction" prefHeight="33" prefWidth="33"
+                                styleClass="tool-button, paint-bucket-icon" GridPane.columnIndex="7">
+                            <tooltip>
+                                <Tooltip text="Paint the shape with bucket color"/>
+                            </tooltip>
+                        </Button>
+                    </children>
                 </GridPane>
                 <!--<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Transform"/>-->
                 <GridPane fx:id="gridModificationTools" hgap="5.0" prefWidth="300.0" vgap="5.0">
-                   <!-- <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                    </columnConstraints>-->
                     <children>
                         <Button mnemonicParsing="false" onAction="#textButtonAction" prefHeight="33" prefWidth="33"
                                 styleClass="tool-button, text-tool-icon">
@@ -124,11 +165,11 @@
                         </Button>
                     </children>
                 </GridPane>
-                <!--<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Effect:  "/>-->
-                <GridPane fx:id="gridFilterTools" prefWidth="80.0" prefHeight="33.0" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" "/>
+                <GridPane fx:id="gridFilterTools" prefWidth="80.0" prefHeight="33.0" hgap="5.0"/>
             </children>
             <padding>
-                <Insets bottom="5.0" left="5.0" right="5.0" top="10.0"/>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
             </padding>
         </HBox>
     </content>

@@ -314,7 +314,7 @@ public class ToolBarController {
         Button effectsToggl = createToolButton("Effects", gridFilterTools);
         effectsToggl.setTooltip(new Tooltip("Open/Close effects panel"));
         effectsToggl.setPrefWidth(160);
-        effectsToggl.setPrefHeight(33);
+        effectsToggl.setPrefHeight(45);
         // Set the toggle action
         effectsToggl.setOnAction((ActionEvent e) -> {
             // If the layoutX property >= 0, then we assume the container is visible

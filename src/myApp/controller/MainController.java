@@ -432,8 +432,8 @@ public class MainController implements Initializable {
      */
     private void showWelcome() {
         mainAnchorPane.getChildren().add(welcomeTab);
-        AnchorPane.setTopAnchor(welcomeTab, 128.0);
-        AnchorPane.setRightAnchor(welcomeTab, 165.0);
+        AnchorPane.setTopAnchor(welcomeTab, 93.0);
+        AnchorPane.setRightAnchor(welcomeTab, 164.0);
         AnchorPane.setBottomAnchor(welcomeTab, 0.0);
         AnchorPane.setLeftAnchor(welcomeTab, 0.0);
     }

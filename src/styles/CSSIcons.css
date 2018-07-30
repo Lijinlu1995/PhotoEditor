@@ -35,6 +35,54 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size: 60%;
 }
+.line-tool-icon {
+    -fx-background-image: url("../img/line-icon.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 50%;
+}
+.rectangular-icon{
+    -fx-background-image: url("../img/rectangle-icon.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 50%;
+}
+.square-icon{
+    -fx-background-image: url("../img/square.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 50%;
+}
+.circle-icon{
+    -fx-background-image: url("../img/circle-icon.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 50%;
+}
+.triangle-icon {
+    -fx-background-image: url("../img/triangle.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 50%;
+}
+.oval-icon{
+    -fx-background-image: url("../img/oval.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 50%;
+}
+.roundrect-icon{
+    -fx-background-image: url("../img/roundrect-icon.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 50%;
+}
+.paint-bucket-icon{
+    -fx-background-image: url("../img/paint-bucket-icon.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 50%;
+}
 .h-symmetry-icon{
     -fx-background-image: url("../img/h-symmetry-icon.png");
     -fx-background-position: center;
