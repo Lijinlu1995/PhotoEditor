@@ -114,7 +114,7 @@ public class MainController implements Initializable {
             toolbarController.openButtonAction(e);
         });
         WelcomeInvite openInvite = new WelcomeInvite(
-                new Label("Open a GEMMS document."), openButtonInvite);
+                new Label("Open a MYPE (my Photo Editor) document."), openButtonInvite);
 
         // Add invites
         welcomeGrid.add(newInvite, 0, 0);

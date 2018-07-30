@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PhotoEiditor.iml" filepath="$PROJECT_DIR$/PhotoEiditor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PhotoEditor.iml" filepath="$PROJECT_DIR$/PhotoEditor.iml" />
     </modules>
   </component>
 </project>

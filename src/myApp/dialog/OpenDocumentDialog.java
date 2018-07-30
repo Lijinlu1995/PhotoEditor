@@ -27,7 +27,7 @@ public class OpenDocumentDialog {
         fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
         fileChooser.setTitle("Open file");
         fileChooser.getExtensionFilters().add(
-                new FileChooser.ExtensionFilter("GEMMS", "*.base"));
+                new FileChooser.ExtensionFilter("MYPE", "*.base"));
     }
 
     /**

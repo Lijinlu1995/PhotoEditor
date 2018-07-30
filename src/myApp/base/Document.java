@@ -134,7 +134,7 @@ public class Document {
         fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
         fileChooser.setTitle("Save as");
         fileChooser.getExtensionFilters().add(
-                new ExtensionFilter("GEMMS", "*.base"));
+                new ExtensionFilter("MYPE", "*.base"));
         fileChooser.setInitialFileName("*.base");
 
         // Shows the dialog and waits for the user response

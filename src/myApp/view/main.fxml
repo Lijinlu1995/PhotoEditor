@@ -7,7 +7,7 @@
 <AnchorPane fx:id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="700.0" minWidth="1000.0"
             prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.121"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="myApp.controller.MainController">
-    <fx:include fx:id="toolbar" source="menuBar.fxml" prefHeight="45.0" prefWidth="1000.0" />
+    <fx:include fx:id="toolbar" source="menuBar.fxml" prefHeight="45.0" prefWidth="Infinity" />
     <children>
         <BorderPane layoutX="100.0" layoutY="100.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0"
                     AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
