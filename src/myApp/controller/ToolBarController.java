@@ -1,5 +1,8 @@
 package myApp.controller;
 
+import javafx.scene.canvas.Canvas;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
 import myApp.dialog.ImportImageDialog;
 import myApp.base.Constants;
 import myApp.layer.CanvasN;
@@ -22,24 +25,14 @@ import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Slider;
-import javafx.scene.control.Tooltip;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.effect.SepiaTone;
 import javafx.scene.image.Image;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.RowConstraints;
 import javafx.scene.paint.Color;
 import javafx.scene.transform.Rotate;
+
+import static myApp.tool.enums.State.LINE_DRAW;
 
 public class ToolBarController {
 
@@ -51,6 +44,18 @@ public class ToolBarController {
 
     // List of created tool buttons
     private Button selectedButton;
+
+    @FXML
+    private ColorPicker colorPicker;
+    @FXML
+    private Slider slider;
+
+    /* A pane instance.*/
+    private Pane pane;
+
+    /* A canvas instance.*/
+    private Canvas canvas;
+
 
     @FXML
     private GridPane gridFilterTools;
@@ -568,13 +573,23 @@ public class ToolBarController {
             toolbarController.displayToolSetting(null);
         }
     }
+    /* Draws a line segment.*/
+    @FXML
+    private void drawLine(ActionEvent e) {
+        Button source = (Button) e.getSource();
 
-    /**
-     * Action when clicked on text button. Set the current tool with an edit text
-     * tool
-     *
-     * @param e
-     */
+        Workspace w = mainController.getCurrentWorkspace();
+        if (w != null) {
+            selectButton(source);
+            w.setCurrentTool(new LineTool(w));
+            toolbarController.displayToolSetting(null);
+            mainController.setState(LINE_DRAW);
+        }
+    }
+    private void configureShape(Shapes shape) {
+        shape.drawShape(pane, colorPicker, slider);
+    }
+
     @FXML
     private void textButtonAction(ActionEvent e) {
         Button source = (Button) e.getSource();
@@ -730,6 +745,18 @@ public class ToolBarController {
         if (w != null) {
             selectButton(source);
             w.setCurrentTool(new Selection(w));
+            toolbarController.displayToolSetting(null);
+        }
+    }
+
+    @FXML
+    private void circlrSelectionButtonAction(ActionEvent e) {
+        Button source = (Button) e.getSource();
+
+        Workspace w = mainController.getCurrentWorkspace();
+        if (w != null) {
+            selectButton(source);
+            w.setCurrentTool(new CircleSelection(w));
             toolbarController.displayToolSetting(null);
         }
     }

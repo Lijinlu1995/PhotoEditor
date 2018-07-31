@@ -62,7 +62,7 @@
                 </GridPane>
                 <GridPane fx:id="shapeTools" hgap="5.0" prefWidth="300.0" vgap="5.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#textButtonAction" prefHeight="33" prefWidth="33"
+                        <Button mnemonicParsing="false" onAction="#drawLine" prefHeight="33" prefWidth="33"
                                 styleClass="tool-button, line-tool-icon">
                             <tooltip>
                                 <Tooltip text="Create a new line"/>
@@ -98,10 +98,10 @@
                                 <Tooltip text="Create a new oval"/>
                             </tooltip>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#scaleButtonAction" prefHeight="33" prefWidth="33"
-                                styleClass="tool-button, roundrect-icon" GridPane.columnIndex="6">
+                        <Button mnemonicParsing="false" onAction="#circlrSelectionButtonAction" prefHeight="33" prefWidth="33"
+                                styleClass="tool-button, circle-selection-icon" GridPane.columnIndex="6">
                             <tooltip>
-                                <Tooltip text="Create a new round rectangular"/>
+                                <Tooltip text="Select a circle area"/>
                             </tooltip>
                         </Button>
                         <Button mnemonicParsing="false" onAction="#cropButtonAction" prefHeight="33" prefWidth="33"

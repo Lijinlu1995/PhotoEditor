@@ -1,11 +1,14 @@
 package myApp.controller;
 
+import javafx.scene.shape.Circle;
 import myApp.base.Constants;
 import myApp.base.Document;
 import myApp.base.Utils;
 import myApp.base.WelcomeInvite;
 import myApp.layer.CanvasN;
+import myApp.tool.CircleSelection;
 import myApp.tool.Selection;
+import myApp.tool.enums;
 import myApp.workspace.Workspace;
 
 import java.awt.*;
@@ -50,6 +53,7 @@ public class MainController implements Initializable {
 
     // Stage from main
     private Stage stage;
+    private static enums.State state;
 
     // List of documents
     private ArrayList<Document> documents;
@@ -114,7 +118,7 @@ public class MainController implements Initializable {
             toolbarController.openButtonAction(e);
         });
         WelcomeInvite openInvite = new WelcomeInvite(
-                new Label("Open a MYPE (my Photo Editor) document."), openButtonInvite);
+                new Label("Open a MYPE document."), openButtonInvite);
 
         // Add invites
         welcomeGrid.add(newInvite, 0, 0);
@@ -122,7 +126,7 @@ public class MainController implements Initializable {
 
         // Set visual parameters
         welcomeGrid.setHgap(15);
-        welcomeGrid.setVgap(30);
+        welcomeGrid.setVgap(20);
         welcomeGrid.setMaxSize(460, 460);
 
         // Add grid to the container
@@ -251,7 +255,41 @@ public class MainController implements Initializable {
                         }
                     }
                     w.notifyHistory();
-                } else {
+                } else if (w != null && w.getLayerTool() != null &&
+                        w.getCurrentTool() instanceof CircleSelection) {
+
+                    // Get the selection
+                    CircleSelection selection = (CircleSelection) getCurrentWorkspace()
+                            .getCurrentTool();
+                    Circle circle = selection.getCircle();
+
+                    for (Node n : w.getCurrentLayers()) {
+                        if (n instanceof CanvasN) {
+
+                            try {
+                                CanvasN canvas = (CanvasN) n;
+
+                                GraphicsContext gc = canvas.getGraphicsContext2D();
+                                gc.setTransform(new Affine(
+                                        canvas.localToParentTransformProperty()
+                                                .get().createInverse()));
+                                gc.clearRect(circle.getBoundsInParent().getMinX(),
+                                        circle.getBoundsInParent().getMinY(),
+                                        circle.getCenterX(), circle.getCenterY());
+
+                                gc.setFill(Color.WHITE);
+                                gc.fillOval(circle.getBoundsInParent().getMinX(),
+                                        circle.getBoundsInParent().getMinY(),2*circle.getRadius(),2*circle.getRadius());
+                            } catch (NonInvertibleTransformException ex) {
+
+                                // TODO : Manage exceptions
+                                Logger.getLogger(MainController.class.getName())
+                                        .log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    }
+                    w.notifyHistory();
+                }else {
                     // Drop the current selected layers
                     w.getCurrentLayers().forEach(n -> w.removeLayer(n));
                 }
@@ -288,20 +326,12 @@ public class MainController implements Initializable {
 
                     // Snapshot each node selected
                     for (Node n : w.getCurrentLayers()) {
-                        /**
-                         * The viewport (part of node that will be snapshoted) must
-                         * be in the node that will be snapshoted parent's coordinate
-                         * system. Passing by BoundsInParent coordinate system gives
-                         * us the right coordinates.*/
 
                         double posXWCoord = selection.getRectangle()
                                 .getBoundsInParent().getMinX();
                         double posYWCoord = selection.getRectangle()
                                 .getBoundsInParent().getMinY();
-                    /*    *
-                         * The viewport will define the part of the node that will be
-                         * snapshoted (the selection actually)
-*/
+
                         param.setViewport(new Rectangle2D(
                                 posXWCoord,
                                 posYWCoord,
@@ -342,7 +372,73 @@ public class MainController implements Initializable {
                     saveNodesToClipboard(Arrays.asList(canvas));
 
                     // No selection then copy the current layers
-                } else if (w != null && w.getCurrentLayers() != null) {
+                }else if (w != null && w.getLayerTool() != null &&
+                        w.getCurrentTool() instanceof CircleSelection) {
+
+                    // Get the selection
+                    CircleSelection selection = (CircleSelection) getCurrentWorkspace().getCurrentTool();
+                    int selectionWidth = (int) (selection.getCircle().getCenterX());
+                    int selectionHeight = (int) (selection.getCircle().getCenterY());
+
+                    // Prepare the canvas to save the selection
+                    CanvasN canvas = new CanvasN(getCurrentWorkspace()
+                            .width(), getCurrentWorkspace().height());
+                    SnapshotParameters param = new SnapshotParameters();
+                    param.setFill(Color.TRANSPARENT);
+
+                    PixelWriter pixelWriter = canvas.getGraphicsContext2D()
+                            .getPixelWriter();
+
+                    BufferedImage image = new BufferedImage(selectionWidth,
+                            selectionHeight, BufferedImage.TYPE_INT_ARGB);
+
+                    // Snapshot each node selected
+                    for (Node n : w.getCurrentLayers()) {
+                        double posXWCoord = selection.getCircle()
+                                .getBoundsInParent().getMinX();
+                        double posYWCoord = selection.getCircle()
+                                .getBoundsInParent().getMinY();
+
+                        param.setViewport(new Rectangle2D(
+                                posXWCoord,
+                                posYWCoord,
+                                selectionWidth,
+                                selectionHeight));
+                        BufferedImage newImage = SwingFXUtils.fromFXImage(
+                                n.snapshot(param, null), null);
+
+                        Graphics2D graphics = (Graphics2D) image.getGraphics();
+
+                        graphics.setBackground(java.awt.Color.WHITE);
+                        graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+                                RenderingHints.VALUE_ANTIALIAS_ON);
+                        graphics.setComposite(AlphaComposite.getInstance(
+                                AlphaComposite.SRC_OVER, 1f));
+
+                        graphics.drawImage(newImage, 0, 0, null);
+                    }
+
+                    // Get a pixel reader
+                    PixelReader pixelReader = SwingFXUtils.toFXImage(image, null)
+                            .getPixelReader();
+
+                    // Write the color of every pixel
+                    for (int y = 0; y < selectionHeight; ++y) {
+                        for (int x = 0; x < selectionWidth; ++x) {
+                            Color c = pixelReader.getColor(x, y);
+                            pixelWriter.setColor(
+                                    x + (int) Math.round(selection.getCircle()
+                                            .getBoundsInParent().getMinX()),
+                                    y + (int) Math.round(selection.getCircle()
+                                            .getBoundsInParent().getMinY()), c);
+                        }
+                    }
+
+                    // Save the canvas to clipboard
+                    saveNodesToClipboard(Arrays.asList(canvas));
+
+                    // No selection then copy the current layers
+                }else if (w != null && w.getCurrentLayers() != null) {
                     saveNodesToClipboard(w.getCurrentLayers());
                 }
 
@@ -445,6 +541,9 @@ public class MainController implements Initializable {
         mainAnchorPane.getChildren().remove(welcomeTab);
     }
 
+    void setState(enums.State state) {
+        MainController.state = state;
+    }
     /**
      * Add document that contains workspace
      *

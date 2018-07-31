@@ -77,6 +77,12 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size: 50%;
 }
+.circle-selection-icon{
+    -fx-background-image: url("../img/circle-selection.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 60%;
+}
 .paint-bucket-icon{
     -fx-background-image: url("../img/paint-bucket-icon.png");
     -fx-background-position: center;
