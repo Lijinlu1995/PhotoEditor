@@ -5,12 +5,8 @@ import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Slider;
 import javafx.scene.text.Text;
 
-/**
- * <h1>ToolSizeSettings</h1>
- *
- * ToolSizeSettings are object that manage the size of a targeted tool. They use a
- * Slider for the user to choose a size, and update the tool accordingly.
- */
+/* ToolSizeSettings are object that manage the size of a targeted tool. They use a
+ * Slider for the user to choose a size, and update the tool accordingly.*/
 public class ToolSizeSettings extends ToolSettings {
     // The target to configure
 
@@ -18,14 +14,8 @@ public class ToolSizeSettings extends ToolSettings {
     // The slider to set the size
     private final Slider slider;
 
-    /**
-     * Constructor. It creates the Slider and adds a text to display the Slider
-     * current value.
-     *
-     * @param min the min value of the Slider
-     * @param max the may value of the Slider
-     * @param value the default value of the Slider
-     */
+    /* Constructor. It creates the Slider and adds a text to display the Slider
+     * current value. */
     public ToolSizeSettings(int min, int max, int value) {
         // Create the slider
         slider = new Slider(min, max, value);
@@ -50,22 +40,14 @@ public class ToolSizeSettings extends ToolSettings {
         getChildren().add(textValue);
     }
 
-    /**
-     * Set the target of the ToolSettings. It updates the target size accordingly to
-     * the Slider current value.
-     *
-     * @param target
-     */
+    /* Set the target of the ToolSettings. It updates the target size accordingly to
+     * the Slider current value. */
     public void setTarget(SizeConfigurableTool target) {
         this.target = target;
         target.setSize((int) slider.getValue());
     }
 
-    /**
-     * Get the current size of the ToolSizeSettings instance.
-     *
-     * @return the current size
-     */
+    //Get the current size of the ToolSizeSettings instance.
     public int getSize() {
         return (int) slider.getValue();
     }

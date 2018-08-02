@@ -12,11 +12,6 @@ public class Rotate extends AbstractTool {
     //The list of selected Nodes
     private List<Node> layers;
 
-    /**
-     * Constructor of Rotate Tool
-     *
-     * @param w workspace to crop
-     */
     public Rotate(Workspace w) {
         super(w);
         workspace.getLayerTool().setCursor(Cursor.DEFAULT);

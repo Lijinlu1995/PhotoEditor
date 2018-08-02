@@ -17,11 +17,8 @@ public class Resize extends AbstractTool {
     //The list of selected Nodes
     private List<Node> layers;
 
-    /**
-     * Constructor of Resize Tool
-     *
-     * @param w workspace to crop
-     */
+    //Constructor of Resize Tool
+
     public Resize(Workspace w) {
         super(w);
         workspace.getLayerTool().setCursor(Cursor.DEFAULT);

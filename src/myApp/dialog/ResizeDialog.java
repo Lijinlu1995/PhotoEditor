@@ -18,21 +18,11 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.util.converter.IntegerStringConverter;
 
-/**
- * <h1>OpenDocumentDialog</h1>
- *
- * Shows a dialog that allow the user to set resize value.
- */
 public class ResizeDialog {
 
     // Dialog
     private Dialog<Rectangle> dialog;
 
-    /**
-     * Constructor
-     *
-     * @param workspace workspace to resize
-     */
     public ResizeDialog(Workspace workspace) {
         dialog = new Dialog<>();
 
@@ -136,11 +126,6 @@ public class ResizeDialog {
         });
     }
 
-    /**
-     * Shows the dialog and waits for the user response
-     *
-     * @return an optional rectangle that contains resize value
-     */
     public Optional<Rectangle> showAndWait() {
         return dialog.showAndWait();
     }

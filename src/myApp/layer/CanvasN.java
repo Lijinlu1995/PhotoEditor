@@ -21,40 +21,20 @@ import javafx.scene.transform.NonInvertibleTransformException;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Transform;
 
-/**
- * <h1>GEMMSCanvas</h1>
- *
- * This class was created to implement Serializable
- */
 public class CanvasN extends javafx.scene.canvas.Canvas implements NodeN,
         LayerListable {
 
     private static int layerCount = 0;
     private String name = "Canvas " + ++layerCount;
 
-    /**
-     * Constructor
-     */
     public CanvasN() {
         super();
     }
 
-    /**
-     * Constructor
-     *
-     * @param width this is the width of this canvas
-     * @param height this is the height of this canvas
-     */
     public CanvasN(double width, double height) {
         super(width, height);
     }
 
-    /**
-     * Write all informations for serialization
-     *
-     * @param s output stream
-     * @throws IOException
-     */
     private void writeObject(ObjectOutputStream s) throws IOException {
         s.defaultWriteObject();
 
@@ -146,12 +126,6 @@ public class CanvasN extends javafx.scene.canvas.Canvas implements NodeN,
         }
     }
 
-    /**
-     * Read all informations for serialization
-     *
-     * @param s input stream
-     * @throws IOException
-     */
     private void readObject(ObjectInputStream s) throws IOException,
             ClassNotFoundException {
         s.defaultReadObject();

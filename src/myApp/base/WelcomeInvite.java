@@ -12,22 +12,15 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 
-/**
- * <h1>WelcomeInvite</h1>
- *
- * Utility class to avoid styling many times the same elements. It create a styled
+/* Utility class to avoid styling many times the same elements. It create a styled
  * VBox containing a label and a button. Its purposes is for example to propose an
  * action to the user.
  */
 public class WelcomeInvite extends VBox {
 
-    /**
-     * Constructor. Styles the VBox WelcomeInvite extends from, and adds the label
-     * and the button to its children.
-     *
-     * @param label the label to add
-     * @param button the button to add
-     */
+     /*Constructor. Styles the VBox WelcomeInvite extends from, and adds the label
+     and the button to its children.*/
+
     public WelcomeInvite(Label label, Button button) {
         // Style the VBox
         setBackground(new Background(new BackgroundFill(Color.web("#ededed"),

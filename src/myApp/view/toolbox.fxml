@@ -68,7 +68,7 @@
                                 <Tooltip text="Create a new line"/>
                             </tooltip>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#hSymmetryButtonAction" prefHeight="33" prefWidth="33"
+                        <Button mnemonicParsing="false" onAction="#rectangularAction" prefHeight="33" prefWidth="33"
                                 styleClass="tool-button, rectangular-icon" GridPane.columnIndex="1">
                             <tooltip>
                                 <Tooltip text="Create a new rectangular"/>

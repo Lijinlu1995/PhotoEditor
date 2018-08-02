@@ -19,11 +19,7 @@ import javafx.scene.text.TextAlignment;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Transform;
 
-/**
- * <h1>GEMMSText</h1>
- *
- * This class was created to implement Serializable
- */
+
 public class TextN extends javafx.scene.text.Text implements NodeN,
         LayerListable {
 
@@ -31,41 +27,20 @@ public class TextN extends javafx.scene.text.Text implements NodeN,
     private String name = "Text " + ++layerCount;
     public static final int DEFAULT_SIZE = 12;
 
-    /**
-     * Constructor
-     */
     public TextN() {
         super();
     }
 
-    /**
-     * Constructor
-     *
-     * @param text text to be contained in the instance
-     */
     public TextN(String text) {
         this(0, 0, text);
     }
 
-    /**
-     * Constructor
-     *
-     * @param x the horizontal position of the text
-     * @param y the vertical position of the text
-     * @param text text to be contained in the instance
-     */
     public TextN(double x, double y, String text) {
         super(x, y, text);
         setTextOrigin(VPos.CENTER);
         setTextAlignment(TextAlignment.CENTER);
     }
 
-    /**
-     * Write all informations for serialization
-     *
-     * @param s output stream
-     * @throws IOException
-     */
     private void writeObject(ObjectOutputStream s) throws IOException {
         s.defaultWriteObject();
 
@@ -137,12 +112,8 @@ public class TextN extends javafx.scene.text.Text implements NodeN,
         }
     }
 
-    /**
-     * Read all informations for serialization
-     *
-     * @param s input stream
-     * @throws IOException
-     */
+    //Read all informations for serialization
+
     private void readObject(ObjectInputStream s) throws IOException,
             ClassNotFoundException {
         s.defaultReadObject();

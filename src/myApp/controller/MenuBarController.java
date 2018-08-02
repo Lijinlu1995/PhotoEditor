@@ -33,18 +33,12 @@ public class MenuBarController {
         mainController = c;
     }
 
-    /**
-     * Clear tool settings
-     */
+    // Clear tool settings
     public void clearToolSettings() {
         toolSettingsContainer.getChildren().clear();
     }
 
-    /**
-     * Add and display tool settings
-     *
-     * @param toolBox tool settings to add
-     */
+    //Add and display tool settings
     public void displayToolSetting(HBox toolBox) {
         clearToolSettings();
         if (toolBox != null) {
@@ -52,12 +46,8 @@ public class MenuBarController {
         }
     }
 
-    /**
-     * Action when clicked on new button. Create a new document and a workspace. And
-     * create a new tab with the workspace.
-     *
-     * @param e
-     */
+    /*Action when clicked on new button. Create a new document and a workspace. And
+     create a new tab with the workspace.*/
     @FXML
     protected void newButtonAction(ActionEvent e) {
 
@@ -96,12 +86,8 @@ public class MenuBarController {
         }
     }
 
-    /**
-     * Action when clicked on open button. Open a document. And create a new tab with
-     * the workspace contained in the document.
-     *
-     * @param e
-     */
+    /*Action when clicked on open button. Open a document. And create a new tab with
+     the workspace contained in the document.*/
     @FXML
     protected void openButtonAction(ActionEvent e) {
 
@@ -125,11 +111,7 @@ public class MenuBarController {
         }
     }
 
-    /**
-     * Action when clicked on save button. Save the current workspace document.
-     *
-     * @param e
-     */
+    // Action when clicked on save button. Save the current workspace document.
     @FXML
     protected void saveButtonAction(ActionEvent e) {
         Workspace w = mainController.getCurrentWorkspace();
@@ -180,12 +162,8 @@ public class MenuBarController {
         }
     }
 
-    /**
-     * Action when clicked on resize button. Resize the current workspace. an image.
-     * PNG format
-     *
-     * @param e
-     */
+    // Action when clicked on resize button. Resize the current workspace. an image.
+
     @FXML
     protected void resizeButtonAction(ActionEvent e) {
         Workspace w = mainController.getCurrentWorkspace();

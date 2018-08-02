@@ -18,54 +18,24 @@ import javafx.scene.paint.Color;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Transform;
 
-/**
- * <h1>GEMMSImage</h1>
- *
- * This class was created to implement Serializable
- */
 public class ImageN extends javafx.scene.image.ImageView implements NodeN,
         LayerListable {
 
     private static int layerCount = 0;
     private String name = "Image " + ++layerCount;
 
-    /**
-     * Constructor
-     *
-     * Allocates a new ImageView object.
-     */
     public ImageN() {
         super();
     }
 
-    /**
-     * Constructor
-     *
-     * Allocates a new ImageView object using the given image.
-     *
-     * @param image load this image
-     */
     public ImageN(Image image) {
         super(image);
     }
 
-    /**
-     * Constructor
-     *
-     * Allocates a new ImageView object with image loaded from the specified URL.
-     *
-     * @param url load an image with url
-     */
     public ImageN(String url) {
         super(url);
     }
 
-    /**
-     * Write all informations for serialization
-     *
-     * @param s output stream
-     * @throws IOException
-     */
     private void writeObject(ObjectOutputStream s) throws IOException {
         s.defaultWriteObject();
 

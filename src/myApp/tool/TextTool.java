@@ -18,26 +18,17 @@ import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
-/**
- * <h1>TextTool</h1>
- *
- * The text tool manages GEMMSTexts, allowing to set their color, size and font. It
+/* The text tool manages GEMMSTexts, allowing to set their color, size and font. It
  * also allows to change a GEMMSText content by clicking on it.
  */
 public class TextTool extends AbstractTool implements ColorConfigurableTool, FontConfigurableTool {
 
-    /**
-     * Constructor. Sets the workspace to work on.
-     *
-     * @param workspace the workspace to work on
-     */
     public TextTool(Workspace workspace) {
         super(workspace);
         workspace.getLayerTool().setCursor(Cursor.TEXT);
     }
 
-    /**
-     * Get a dialog window to ask for a user text input. The resulting Optional
+    /*  Get a dialog window to ask for a user text input. The resulting Optional
      * object will either contain a null String if the user didn't enter anything, or
      * a String containing one ore more paragraphs separated by '\n' character.
      *
@@ -102,12 +93,8 @@ public class TextTool extends AbstractTool implements ColorConfigurableTool, Fon
         return dialog.showAndWait();
     }
 
-    /**
-     * Request a dialog text input, and apply the changes to the layer parameter if
-     * it is a GEMMSText layer
-     *
-     * @param layer a Workspace layer
-     */
+    /* Request a dialog text input, and apply the changes to the layer parameter if
+     * it is a GEMMSText layer*/
     private static void dialogTextValue(Node layer) {
         // Check if the layer is a GEMMSText
         if (layer instanceof TextN) {
@@ -125,27 +112,14 @@ public class TextTool extends AbstractTool implements ColorConfigurableTool, Fon
         }
     }
 
-    /**
-     * Do nothing on mouse pressed
-     *
-     * @param x
-     * @param y
-     */
     @Override
     public void mousePressed(double x, double y) {
     }
-
-    /**
-     * Do nothing on mouse drag
-     *
-     * @param x
-     * @param y
-     */
     @Override
     public void mouseDragged(double x, double y) {
     }
 
-    /**
+    /*
      * The mouseReleased action. TextTool will check the selected layers in the
      * Workspace, and if there is only one selected Node and this Node is a
      * GEMMSText, it will check if the click event happened on the Text boundaries.
@@ -183,7 +157,7 @@ public class TextTool extends AbstractTool implements ColorConfigurableTool, Fon
 
     }
 
-    /**
+    /*
      * Get the current color of the TextTool. If exactly one GEMMSText layer is
      * currently selected, the tool will return the color of this Text.
      *
@@ -200,7 +174,7 @@ public class TextTool extends AbstractTool implements ColorConfigurableTool, Fon
         }
     }
 
-    /**
+    /*
      * Set the current Color of the tool. If exactly one GEMMSText layer is currently
      * selected, the tool will set the color of this Text.
      *
@@ -215,7 +189,7 @@ public class TextTool extends AbstractTool implements ColorConfigurableTool, Fon
         }
     }
 
-    /**
+    /*
      * Set the current Font of the tool. If exactly one GEMMSText layer is currently
      * selected, the tool will return the Font of this Text.
      *
@@ -232,7 +206,7 @@ public class TextTool extends AbstractTool implements ColorConfigurableTool, Fon
         }
     }
 
-    /**
+    /*
      * Get the current font of the tool. If exactly one GEMMSText layer is currently
      * selected, the tool will return the Font of this Text.
      *

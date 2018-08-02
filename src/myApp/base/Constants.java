@@ -6,6 +6,7 @@ import javafx.scene.input.KeyCombination;
 
 public class Constants {
 
+    //define the basic size and shortcut
     public static double BUTTONS_HEIGHT = 33;
     public static double HISTORY_THUMB_WIDTH = 120.;
 

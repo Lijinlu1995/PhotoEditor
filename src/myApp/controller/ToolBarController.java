@@ -51,14 +51,14 @@ public class ToolBarController {
     private Slider slider;
 
     /* A pane instance.*/
-    private Pane pane;
+    public Pane pane;
 
     /* A canvas instance.*/
     private Canvas canvas;
 
 
     @FXML
-    private GridPane gridFilterTools;
+    public GridPane gridFilterTools;
 
     final ToolColorSettings textColor = new ToolColorSettings(
             ColorSet.getInstance().getColor());
@@ -316,7 +316,7 @@ public class ToolBarController {
         GridPane.setColumnSpan(effectButtonsContainer, 3);
 
         // Create a button to toggle the effect panel
-        Button effectsToggl = createToolButton("Effects", gridFilterTools);
+       /* Button effectsToggl = createToolButton("Effects", gridFilterTools);
         effectsToggl.setTooltip(new Tooltip("Open/Close effects panel"));
         effectsToggl.setPrefWidth(160);
         effectsToggl.setPrefHeight(45);
@@ -355,17 +355,12 @@ public class ToolBarController {
                 effectsContainer.setLayoutX(posX);
                 effectsContainer.setLayoutY(posY);
             }
-        });
+        });*/
 
     }
 
-    /**
-     * Create a tool button and add it in the corresponding grid pane
-     *
-     * @param text text of the button
-     * @param pane grid pane to add the button
-     * @return the button created
-     */
+    //Create a tool button and add it in the corresponding grid pane
+
     // TODO: replace text by an image
     private Button createToolButton(String text, GridPane pane) {
         Button button = new Button(text);
@@ -389,15 +384,8 @@ public class ToolBarController {
         return button;
     }
 
-    /**
-     * Creates a slider in a pane at a certain position. Used to create opacity,
-     * sepia, saturation and contrast sliders.
-     *
-     * @param pane
-     * @param value
-     * @param slider
-     * @param position
-     */
+    /*Creates a slider in a pane at a certain position. Used to create opacity,
+     sepia, saturation and contrast sliders.*/
     private void createSlider(GridPane pane, String string, Slider slider,
             Label value, int position) {
         Label label = new Label(string);
@@ -411,13 +399,10 @@ public class ToolBarController {
         pane.getChildren().add(value);
     }
 
-    /**
-     * Returns node ColorAdjust effect. If it has none, creates one with SepiaTone as
-     * input, which itself has a GaussianBlur as input.
-     *
-     * @param n Node
-     * @return node's ColorAdjust
-     */
+
+    /* Returns node ColorAdjust effect. If it has none, creates one with SepiaTone as
+     input, which itself has a GaussianBlur as input.*/
+
     private ColorAdjust getColorAdjust(Node n) {
         if (!(n.getEffect() instanceof ColorAdjust)) {
             ColorAdjust c = new ColorAdjust();
@@ -430,12 +415,7 @@ public class ToolBarController {
         return ((ColorAdjust) n.getEffect());
     }
 
-    /**
-     * Sets GaussianBlur radius to desired amount for a given node.
-     *
-     * @param n
-     * @param i
-     */
+    //Sets GaussianBlur radius to desired amount for a given node.
     private void setBlurRadius(Node n, int i) {
         ((GaussianBlur) (((SepiaTone) getColorAdjust(n).getInput()))
                 .getInput()).setRadius(i);
@@ -454,12 +434,9 @@ public class ToolBarController {
         b.getStyleClass().add("selected");
     }
 
-    /**
-     * Action when clicked on new canvas button. Create a canvas and add it to the
-     * current workspace's layer list
-     *
-     * @param e
-     */
+    /*Action when clicked on new canvas button. Create a canvas and add it to the
+     current workspace's layer list*/
+
     @FXML
     private void newCanvasButtonAction(ActionEvent e) {
         Workspace w = mainController.getCurrentWorkspace();
@@ -470,12 +447,10 @@ public class ToolBarController {
         }
     }
 
-    /**
-     * Action when clicked on new image button. Import an image and add it to the
-     * current workspace's layer list
-     *
-     * @param e
-     */
+
+     /*Action when clicked on new image button. Import an image and add it to the
+     current workspace's layer list*/
+
     @FXML
     private void newImageButtonAction(ActionEvent e) {
         Workspace w = mainController.getCurrentWorkspace();
@@ -494,12 +469,8 @@ public class ToolBarController {
         }
     }
 
-    /**
-     * Action when clicked on new text button. Create a text and add it to the
-     * current workspace's layer list
-     *
-     * @param e
-     */
+    /*Action when clicked on new text button. Create a text and add it to the
+     current workspace's layer list*/
     @FXML
     private void newTextButtonAction(ActionEvent e) {
         Workspace w = mainController.getCurrentWorkspace();
@@ -518,11 +489,8 @@ public class ToolBarController {
         }
     }
 
-    /**
-     * Action when clicked on brush button. Set the current tool with a brush tool
-     *
-     * @param e
-     */
+    //Action when clicked on brush button. Set the current tool with a brush tool
+
     @FXML
     private void brushButtonAction(ActionEvent e) {
         Button source = (Button) e.getSource();
@@ -537,11 +505,8 @@ public class ToolBarController {
         }
     }
 
-    /**
-     * Action when clicked on eraser button. Set the current tool with an eraser tool
-     *
-     * @param e
-     */
+    //Action when clicked on eraser button. Set the current tool with an eraser tool
+
     @FXML
     private void eraserButtonAction(ActionEvent e) {
         Button source = (Button) e.getSource();
@@ -556,12 +521,8 @@ public class ToolBarController {
         }
     }
 
-    /**
-     * Action when clicked on eye dropper button. Set the current tool with an eye
-     * dropper tool
-     *
-     * @param e
-     */
+    //Action when clicked on eye dropper button. Set the current tool with an eyedropper tool
+
     @FXML
     private void eyeDropperButtonAction(ActionEvent e) {
         Button source = (Button) e.getSource();
@@ -581,7 +542,7 @@ public class ToolBarController {
         Workspace w = mainController.getCurrentWorkspace();
         if (w != null) {
             selectButton(source);
-            w.setCurrentTool(new LineTool(w));
+            //w.setCurrentTool(new LineTool());
             toolbarController.displayToolSetting(null);
             mainController.setState(LINE_DRAW);
         }
@@ -604,12 +565,10 @@ public class ToolBarController {
         }
     }
 
-    /**
-     * Action when clicked on horizontal symmetry button. Tranform all selected
-     * layers with horizontal symmetry
-     *
-     * @param e
-     */
+
+     /*Action when clicked on horizontal symmetry button. Tranform all selected
+     layers with horizontal symmetry*/
+
     @FXML
     private void hSymmetryButtonAction(ActionEvent e) {
         Workspace w = mainController.getCurrentWorkspace();
@@ -633,12 +592,10 @@ public class ToolBarController {
         }
     }
 
-    /**
-     * Action when clicked on vertical symmetry button. Tranform all selected layers
-     * with vertical symmetry
-     *
-     * @param e
-     */
+
+     /*Action when clicked on vertical symmetry button. Tranform all selected layers
+     with vertical symmetry*/
+
     @FXML
     private void vSymmetryButtonAction(ActionEvent e) {
         Workspace w = mainController.getCurrentWorkspace();
@@ -665,11 +622,7 @@ public class ToolBarController {
         }
     }
 
-    /**
-     * Action when clicked on drag button. Set the current tool with a drag tool
-     *
-     * @param e
-     */
+    //Action when clicked on drag button. Set the current tool with a drag tool
     @FXML
     private void dragButtonAction(ActionEvent e) {
         Button source = (Button) e.getSource();
@@ -697,11 +650,7 @@ public class ToolBarController {
         }
     }
 
-    /**
-     * Action when clicked on rotate button. Set the current tool with a rotate tool
-     *
-     * @param e
-     */
+    // Action when clicked on rotate button. Set the current tool with a rotate tool
     @FXML
     private void rotateButtonAction(ActionEvent e) {
         Button source = (Button) e.getSource();
@@ -714,11 +663,7 @@ public class ToolBarController {
         }
     }
 
-    /**
-     * Action when clicked on scale button. Set the current tool with a scale tool
-     *
-     * @param e
-     */
+    //Action when clicked on scale button. Set the current tool with a scale tool
     @FXML
     private void scaleButtonAction(ActionEvent e) {
         Button source = (Button) e.getSource();
@@ -731,12 +676,18 @@ public class ToolBarController {
         }
     }
 
-    /**
-     * Action when clicked on selection button. Set the current tool with a selection
-     * tool
-     *
-     * @param e
-     */
+    @FXML
+    private void rectangularAction(ActionEvent e) {
+        Button source = (Button) e.getSource();
+
+        Workspace w = mainController.getCurrentWorkspace();
+        if (w != null) {
+            selectButton(source);
+            w.setCurrentTool(new RectangularTool(w));
+            toolbarController.displayToolSetting(null);
+        }
+    }
+
     @FXML
     private void selectionButtonAction(ActionEvent e) {
         Button source = (Button) e.getSource();
@@ -761,11 +712,8 @@ public class ToolBarController {
         }
     }
 
-    /**
-     * Action when clicked on crop button. Set the current tool with a crop tool
-     *
-     * @param e
-     */
+    // Action when clicked on crop button. Set the current tool with a crop tool
+
     @FXML
     private void cropButtonAction(ActionEvent e) {
         Button source = (Button) e.getSource();

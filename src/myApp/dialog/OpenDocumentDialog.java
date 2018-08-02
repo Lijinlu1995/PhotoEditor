@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 /**
  * <h1>OpenDocumentDialog</h1>
  *
- * Shows a dialog that allow users to open a project file. (*.base)
+ * Shows a dialog that allow users to open a project file. (*.mype)
  */
 public class OpenDocumentDialog {
 
@@ -27,7 +27,7 @@ public class OpenDocumentDialog {
         fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
         fileChooser.setTitle("Open file");
         fileChooser.getExtensionFilters().add(
-                new FileChooser.ExtensionFilter("MYPE", "*.base"));
+                new FileChooser.ExtensionFilter("MYPE", "*.mype"));
     }
 
     /**

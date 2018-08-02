@@ -1,23 +1,12 @@
 package myApp.tool.settings;
 
-/**
- * <h1>SizeConfigurableTool</h1>
- *
- * SizeConfigurableTools represent tools that can be resized.
- */
+//SizeConfigurableTools represent tools that can be resized.
+
 public interface SizeConfigurableTool {
 
-    /**
-     * Set the size of the object
-     *
-     * @param size
-     */
+    //Set the size of the object
     public void setSize(int size);
 
-    /**
-     * Return the current size of the tool
-     *
-     * @return
-     */
+    // Return the current size of the tool
     public int getSize();
 }

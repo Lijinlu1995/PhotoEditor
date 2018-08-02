@@ -23,11 +23,6 @@ public class CircleSelection extends AbstractTool {
     private boolean isMoved;
     private boolean isDragged;
 
-    /**
-     * Constructor
-     *
-     * @param w workspace
-     */
     public CircleSelection(Workspace w) {
         super(w);
 
@@ -146,11 +141,6 @@ public class CircleSelection extends AbstractTool {
         workspace.getLayerTool().setCursor(Cursor.DEFAULT);
     }
 
-    /**
-     * Get selection box
-     *
-     * @return circle
-     */
     public Circle getCircle() {
         return circle;
     }

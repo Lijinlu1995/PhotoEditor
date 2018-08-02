@@ -12,11 +12,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
-/**
- * <h1>Selection</h1>
- *
- * The Selection tool class. Allow users to select an area of workspace with a box.
- */
+//The Selection tool class. Allow users to select an area of workspace with a box.
 public class Selection extends AbstractTool {
 
     // Selection box
@@ -30,11 +26,6 @@ public class Selection extends AbstractTool {
     private boolean isMoved;
     private boolean isDragged;
 
-    /**
-     * Constructor
-     *
-     * @param w workspace
-     */
     public Selection(Workspace w) {
         super(w);
 
@@ -154,11 +145,7 @@ public class Selection extends AbstractTool {
         workspace.getLayerTool().setCursor(Cursor.DEFAULT);
     }
 
-    /**
-     * Get selection box
-     *
-     * @return rectangle
-     */
+    //Get selection box
     public Rectangle getRectangle() {
         return rectangle;
     }

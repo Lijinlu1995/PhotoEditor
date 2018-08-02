@@ -13,22 +13,13 @@ import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
 
-/**
- * <h1>ImportImageDialog</h1>
- *
- * Display a new file open dialog that allow users to open an image. Only png and jpg
- * format are allowed (*.png or .jpg)
- */
+/*Display a new file open dialog that allow users to open an image. Only png and jpg
+ format are allowed (*.png or .jpg)*/
 public class ImportImageDialog {
 
     private final FileChooser fileChooser;
     private final Stage stage;
 
-    /**
-     * Constructor
-     *
-     * @param s stage for FileChooser
-     */
     public ImportImageDialog(Stage s) {
         stage = s;
 
@@ -44,11 +35,8 @@ public class ImportImageDialog {
                 new FileChooser.ExtensionFilter("gif files (*.gif)", "*.gif"));
     }
 
-    /**
-     * Shows a new file open dialog
-     *
-     * @return Image
-     */
+    // Shows a new file open dialog
+
     public Image showAndWait() {
         File file = fileChooser.showOpenDialog(stage);
 

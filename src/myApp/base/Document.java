@@ -19,14 +19,6 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 
-/**
- * <h1>Document</h1>
- *
- * This class creates or loads from a file a workspace. And allows to save in file
- * project (*.base). The save file is compressed with GZIP.
- *
- * And this class allows also to export the workspace as an image.
- */
 public class Document {
 
     // Workspace
@@ -41,15 +33,6 @@ public class Document {
     // Contains document's name
     private String name;
 
-    /**
-     * Constructor
-     *
-     * Create a new document
-     *
-     * @param s stage for the file chooser
-     * @param width width of the workspace
-     * @param height height of the workspace
-     */
     public Document(Stage s, int width, int height) {
         init(s);
 
@@ -57,23 +40,10 @@ public class Document {
         workspace = new Workspace(width, height);
     }
 
-    /**
-     * Constructor
-     *
-     * Load a workspace from a file
-     *
-     * @param s stage for the file chooser
-     * @param f file to open
-     *
-     * @throws FileNotFoundException
-     * @throws IOException
-     * @throws ClassNotFoundException
-     */
     public Document(Stage s, File f) throws FileNotFoundException, IOException,
             ClassNotFoundException {
         init(s);
 
-        // TODO : Check file extension
         currentFile = f;
 
         name = currentFile.getName();
@@ -89,21 +59,14 @@ public class Document {
         }
     }
 
-    /**
-     * Init for constructor
-     *
-     * @param s stage to affect
-     */
+    //Init for constructor
+
     private void init(Stage s) {
         stage = s;
     }
 
-    /**
-     * Save the workspace
-     *
-     * @throws IOException
-     * @throws FileNotFoundException
-     */
+    //Save the workspace
+
     public void save() throws FileNotFoundException, IOException {
 
         // Check if there is already a loaded file
@@ -120,12 +83,7 @@ public class Document {
         }
     }
 
-    /**
-     * SaveAs the workspace
-     *
-     * @throws IOException
-     * @throws FileNotFoundException
-     */
+    //SaveAs the workspace MYPE
     public void saveAs() throws FileNotFoundException, IOException {
 
         // Set FileChooser
@@ -134,13 +92,13 @@ public class Document {
         fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
         fileChooser.setTitle("Save as");
         fileChooser.getExtensionFilters().add(
-                new ExtensionFilter("MYPE", "*.base"));
-        fileChooser.setInitialFileName("*.base");
+                new ExtensionFilter("MYPE", "*.mype"));
+        fileChooser.setInitialFileName("*.mype");
 
         // Shows the dialog and waits for the user response
         currentFile = fileChooser.showSaveDialog(stage);
         if (currentFile != null) {
-            if (currentFile.getName().endsWith(".base")) {
+            if (currentFile.getName().endsWith(".mype")) {
                 try (ObjectOutputStream out = new ObjectOutputStream(
                         new GZIPOutputStream(
                                 new FileOutputStream(currentFile)
@@ -154,11 +112,8 @@ public class Document {
         }
     }
 
-    /**
-     * Export the workspace as an image
-     *
-     * @throws IOException
-     */
+    //Export the workspace as an image
+
     public void export() throws IOException {
 
         // Set fileChooser
@@ -212,20 +167,14 @@ public class Document {
         }
     }
 
-    /**
-     * Return the workspace
-     *
-     * @return the workspace
-     */
+    //Return the workspace
+
     public Workspace workspace() {
         return workspace;
     }
 
-    /**
-     * Return name of the document
-     *
-     * @return name
-     */
+    //Return name of the document
+
     public String name() {
         return name;
     }

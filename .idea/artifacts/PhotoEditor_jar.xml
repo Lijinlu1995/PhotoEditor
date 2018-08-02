@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="PhotoEditor:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/PhotoEditor_jar</output-path>
+    <root id="archive" name="PhotoEditor.jar">
+      <element id="module-output" name="PhotoEditor" />
+    </root>
+  </artifact>
+</component>

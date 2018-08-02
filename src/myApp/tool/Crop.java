@@ -7,8 +7,7 @@ import javafx.scene.Cursor;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-/**
- * The Crop tool class. Allow users to crop the workspace with a box. It resize the
+/* The Crop tool class. Allow users to crop the workspace with a box. It resize the
  * workspace but do not resize the layers.
  */
 public class Crop extends AbstractTool {
@@ -25,11 +24,6 @@ public class Crop extends AbstractTool {
     private boolean isDragging;
     private boolean isMoved;
 
-    /**
-     * Constructor
-     *
-     * @param w workspace to crop
-     */
     public Crop(Workspace w) {
         super(w);
 

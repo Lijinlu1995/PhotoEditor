@@ -1,5 +1,6 @@
 package myApp.tool;
 
+import myApp.controller.ToolBarController;
 import myApp.workspace.HistoryNotifier;
 import myApp.workspace.Workspace;
 
@@ -7,6 +8,7 @@ public abstract class AbstractTool implements Tool {
 
     protected final Workspace workspace;
     protected HistoryNotifier notifier;
+    protected ToolBarController controller;
 
     public AbstractTool(Workspace workspace) {
         this.workspace = workspace;

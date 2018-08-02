@@ -18,9 +18,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.util.converter.IntegerStringConverter;
 
-/**
- * <h1>NewDocumentDialog</h1>
- *
+/*
  * Display a dialog that allow users to set a size and a backgoud color for the
  * document (Workspace).
  */
@@ -32,9 +30,6 @@ public class NewDocumentDialog {
     // Color picker
     private ColorPicker colorPicker;
 
-    /**
-     * Constructor
-     */
     public NewDocumentDialog() {
         dialog = new Dialog<>();
         colorPicker = new ColorPicker(Color.color(0, 0, 0, 0));
@@ -117,11 +112,6 @@ public class NewDocumentDialog {
         });
     }
 
-    /**
-     * Shows the dialog and waits for the user response
-     *
-     * @return an optional NewDocument
-     */
     public Optional<NewDocument> showAndWait() {
         return dialog.showAndWait();
     }

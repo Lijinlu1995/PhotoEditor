@@ -9,23 +9,11 @@ import javafx.scene.transform.Scale;
 import javafx.scene.transform.Transform;
 import javafx.scene.transform.Translate;
 
-/**
- * <h1>PositionMapper</h1>
- *
- * Provides function to convert coordinates to Node coordinates
- */
+//Provides function to convert coordinates to Node coordinates
 public class PositionMapper {
 
-    /**
-     * Convert mouse coordinates to Node coordinates (Apply node transformation)
-     *
-     * @param node Node as reference
-     * @param x x position
-     * @param y y position
-     * @param z z position
-     *
-     * @return converted coordinates
-     */
+    //Convert mouse coordinates to Node coordinates (Apply node transformation)
+
     public static Point3D convert(Node node, double x, double y, double z) {
         // Bounds
         Bounds bounds = node.getBoundsInLocal();
@@ -66,14 +54,7 @@ public class PositionMapper {
         return point;
     }
 
-    /**
-     * Convert mouse coordinates to Node coordinates (Apply node transformation)
-     *
-     * @param node Node as reference
-     * @param point coordinates to convert
-     *
-     * @return converted coordinates
-     */
+    // Convert mouse coordinates to Node coordinates (Apply node transformation)
     public static Point3D convert(Node node, Point3D point) {
         return convert(node, point.getX(), point.getY(), point.getZ());
     }

@@ -9,12 +9,8 @@ import javafx.scene.control.Slider;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-/**
- * <h1>ToolFontSettings</h1>
- *
- * ToolFontSettings manage FontConfigurableTools. Its purpose is to offer JavaFx
- * control elements to change the size and the family of the targeted tool.
- */
+/* ToolFontSettings manage FontConfigurableTools. Its purpose is to offer JavaFx
+ * control elements to change the size and the family of the targeted tool.*/
 public class ToolFontSettings extends ToolSettings {
 
     // Tool to manage
@@ -26,14 +22,8 @@ public class ToolFontSettings extends ToolSettings {
     // JavaFx Slider to choose the size of the font
     private Slider slider;
 
-    /**
-     * Constructor. It creates the ComboBox to list available fonts, the slider to
-     * choose font size.
-     *
-     * @param min the min value of the Slider
-     * @param max the max value of the Slider
-     * @param value the starting value of the Slider
-     */
+    /* Constructor. It creates the ComboBox to list available fonts, the slider to
+     * choose font size.*/
     public ToolFontSettings(int min, int max, int value) {
         // Center elements vertically
         setAlignment(Pos.CENTER_LEFT);
@@ -79,14 +69,10 @@ public class ToolFontSettings extends ToolSettings {
         getChildren().add(cb);
     }
 
-    /**
-     * Set the current targeted tool. The ToolFonSettings instance checks if the
+    /* Set the current targeted tool. The ToolFonSettings instance checks if the
      * newly targeted tool has a Font, in which case it updates its own information
      * accordingly. If not, it sets the tool font information using its current
-     * settings.
-     *
-     * @param target the new targeted tool
-     */
+     * settings.*/
     public void setTarget(FontConfigurableTool target) {
         this.target = target;
 
@@ -102,11 +88,7 @@ public class ToolFontSettings extends ToolSettings {
         }
     }
 
-    /**
-     * Get the current ToolFontSettings font parameters.s
-     *
-     * @return the current Font used by this instance.
-     */
+    //Get the current ToolFontSettings font parameters.s
     public Font getFont() {
         return Font.font(cb.getValue(), (int) slider.getValue());
     }

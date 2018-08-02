@@ -8,10 +8,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 
-/**
- * <h1>ColorSet</h1>
- *
- * ColorSet is a class that represents the application color set. It is composed of
+/* ColorSet is a class that represents the application color set. It is composed of
  * two main ColorPack, which keep track of two colors that the application interface
  * is currently using.
  *
@@ -28,9 +25,6 @@ public class ColorSet {
     // The ColorSet controller to display the controls of the instance of ColorSet
     private HBox colorController = null;
 
-    /**
-     * Constructor. Defines the default ColorPacks.
-     */
     private ColorSet() {
         primaryColor = new ColorPack(Color.BLACK);
         secondaryColor = new ColorPack(Color.WHITE);
@@ -38,9 +32,6 @@ public class ColorSet {
         setCurrentColorPack(primaryColor);
     }
 
-    /**
-     * Java trick to create the singleton instance
-     */
     private static class Instance {
 
         static final ColorSet colorSet = new ColorSet();
@@ -94,21 +85,13 @@ public class ColorSet {
         currentColor.getColorPicker().getStyleClass().add("active");
     }
 
-    /**
-     * Private intern class that represent a color being tracked. It manages a
-     * current color and defines controllers element to change its state.
-     */
+    //current color and defines controllers element to change its state.
+
     private class ColorPack {
         // The ColorPicker tha manages the color.
 
         private final ColorPicker cp;
 
-        /**
-         * Constructor. Define the color from the parameter, and create the
-         * ColorPicker instance that will allow users to select colors.
-         *
-         * @param color
-         */
         public ColorPack(Color color) {
             // Create the linked ColorPicker
             cp = new ColorPicker();
@@ -138,30 +121,21 @@ public class ColorSet {
             });
         }
 
-        /**
-         * get the current color.
-         *
-         * @return the current color
-         */
+        // get the current color.
+
         private Color getColor() {
             return cp.getValue();
         }
 
-        /**
-         * Set the color
-         *
-         * @param color the new color
-         */
+        //Set the color
+
         private void setColor(Color color) {
             if (color != null) {
                 cp.setValue(color);
             }
         }
 
-        /**
-         * Get the ColorPack ColorPicker Return the ColorPicker instance that manages
-         * the ColorPack
-         */
+        // Get the ColorPack ColorPicker Return the ColorPicker instance that manages the ColorPack
         private ColorPicker getColorPicker() {
             return cp;
         }

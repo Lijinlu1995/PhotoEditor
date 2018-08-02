@@ -470,11 +470,8 @@ public class MainController implements Initializable {
         rightController.init(this);
     }
 
-    /**
-     * Copy a list of nodes in the clipboard
-     *
-     * @param nodes the nodes to copy to clipboard
-     */
+    //Copy a list of nodes in the clipboard
+
     private void saveNodesToClipboard(List<Node> nodes) {
         Clipboard clipboard = Clipboard.getSystemClipboard();
         ClipboardContent cc = new ClipboardContent();
@@ -490,11 +487,8 @@ public class MainController implements Initializable {
         clipboard.setContent(cc);
     }
 
-    /**
-     * Retrieve a list of nodes from the clipboard
-     *
-     * @return the list of nodes that was in the clipboard
-     */
+    //Retrieve a list of nodes from the clipboard
+
     private List<Node> getNodesFromClipboard() {
         Clipboard clipboard = Clipboard.getSystemClipboard();
         String serializedObject = clipboard.getString();
@@ -509,11 +503,8 @@ public class MainController implements Initializable {
         }
     }
 
-    /**
-     * Create a new tab
-     *
-     * @param document that containt name and workspace
-     */
+    //Create a new tab
+
     public void createTab(Document document) {
         Workspace w = document.workspace();
 
@@ -523,9 +514,7 @@ public class MainController implements Initializable {
         workspaces.getSelectionModel().select(tab);
     }
 
-    /**
-     * Show and set anchors for the welcome panel.
-     */
+    //Show and set anchors for the welcome panel.
     private void showWelcome() {
         mainAnchorPane.getChildren().add(welcomeTab);
         AnchorPane.setTopAnchor(welcomeTab, 93.0);
@@ -534,9 +523,8 @@ public class MainController implements Initializable {
         AnchorPane.setLeftAnchor(welcomeTab, 0.0);
     }
 
-    /**
-     * Hide the welcome panel.
-     */
+    //Hide the welcome panel.
+
     public void hideWelcome() {
         mainAnchorPane.getChildren().remove(welcomeTab);
     }
@@ -544,20 +532,13 @@ public class MainController implements Initializable {
     void setState(enums.State state) {
         MainController.state = state;
     }
-    /**
-     * Add document that contains workspace
-     *
-     * @param document
-     */
+    //Add document that contains workspace
+
     public void addDocument(Document document) {
         documents.add(document);
     }
 
-    /**
-     * Get the current workspace displayed
-     *
-     * @return current workspace
-     */
+    //Get the current workspace displayed
     public Workspace getCurrentWorkspace() {
         if (workspaces.getTabs().size() > 0) {
             return (Workspace) workspaces.getSelectionModel().getSelectedItem()
@@ -567,12 +548,7 @@ public class MainController implements Initializable {
         return null;
     }
 
-    /**
-     * Get document that contain the workspace
-     *
-     * @param w workspace to find
-     * @return Document that contain the workspace
-     */
+    // Get document that contain the workspace
     public Document getDocument(Workspace w) {
         for (Document d : documents) {
             if (d.workspace() == w) {
@@ -583,38 +559,26 @@ public class MainController implements Initializable {
         return null;
     }
 
-    /**
-     * Get current tab
-     *
-     * @return Tab
-     */
+    //Get current tab
+
     public Tab getCurrentTab() {
         return workspaces.getSelectionModel().getSelectedItem();
     }
 
-    /**
-     * Get the main pane
-     *
-     * @return AnchorPane
-     */
+    // Get the main pane
+
     public AnchorPane getMainPane() {
         return mainAnchorPane;
     }
 
-    /**
-     * Set main stage
-     *
-     * @param s stage to set
-     */
+    //Set main stage
+
     public void setStage(Stage s) {
         this.stage = s;
     }
 
-    /**
-     * Get main stage
-     *
-     * @return stage
-     */
+    //Get main stage
+
     public Stage getStage() {
         return stage;
     }
