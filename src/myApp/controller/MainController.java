@@ -276,7 +276,6 @@ public class MainController implements Initializable {
                                 gc.clearRect(circle.getBoundsInParent().getMinX(),
                                         circle.getBoundsInParent().getMinY(),
                                         circle.getCenterX(), circle.getCenterY());
-
                                 gc.setFill(Color.WHITE);
                                 gc.fillOval(circle.getBoundsInParent().getMinX(),
                                         circle.getBoundsInParent().getMinY(),2*circle.getRadius(),2*circle.getRadius());
@@ -374,12 +373,11 @@ public class MainController implements Initializable {
                     // No selection then copy the current layers
                 }else if (w != null && w.getLayerTool() != null &&
                         w.getCurrentTool() instanceof CircleSelection) {
-
                     // Get the selection
                     CircleSelection selection = (CircleSelection) getCurrentWorkspace().getCurrentTool();
-                    int selectionWidth = (int) (selection.getCircle().getCenterX());
-                    int selectionHeight = (int) (selection.getCircle().getCenterY());
-
+                    int selectionX = (int) (selection.getCircle().getCenterX());
+                    int selectionY = (int) (selection.getCircle().getCenterY());
+                    int radius = (int) (selection.getCircle().getRadius());
                     // Prepare the canvas to save the selection
                     CanvasN canvas = new CanvasN(getCurrentWorkspace()
                             .width(), getCurrentWorkspace().height());
@@ -389,11 +387,12 @@ public class MainController implements Initializable {
                     PixelWriter pixelWriter = canvas.getGraphicsContext2D()
                             .getPixelWriter();
 
-                    BufferedImage image = new BufferedImage(selectionWidth,
-                            selectionHeight, BufferedImage.TYPE_INT_ARGB);
+                    BufferedImage image = new BufferedImage(selectionX,
+                            selectionY, BufferedImage.TYPE_INT_ARGB);
 
                     // Snapshot each node selected
                     for (Node n : w.getCurrentLayers()) {
+
                         double posXWCoord = selection.getCircle()
                                 .getBoundsInParent().getMinX();
                         double posYWCoord = selection.getCircle()
@@ -402,8 +401,9 @@ public class MainController implements Initializable {
                         param.setViewport(new Rectangle2D(
                                 posXWCoord,
                                 posYWCoord,
-                                selectionWidth,
-                                selectionHeight));
+                                selectionX,
+                                selectionY));
+
                         BufferedImage newImage = SwingFXUtils.fromFXImage(
                                 n.snapshot(param, null), null);
 
@@ -423,8 +423,8 @@ public class MainController implements Initializable {
                             .getPixelReader();
 
                     // Write the color of every pixel
-                    for (int y = 0; y < selectionHeight; ++y) {
-                        for (int x = 0; x < selectionWidth; ++x) {
+                    for (int y = 0; y < selectionX; ++y) {
+                        for (int x = 0; x < selectionY; ++x) {
                             Color c = pixelReader.getColor(x, y);
                             pixelWriter.setColor(
                                     x + (int) Math.round(selection.getCircle()
