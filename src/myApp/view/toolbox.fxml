@@ -60,60 +60,8 @@
                         </Button>
                     </children>
                 </GridPane>
-                <GridPane fx:id="shapeTools" hgap="5.0" prefWidth="300.0" vgap="5.0">
-                    <children>
-                        <Button mnemonicParsing="false" onAction="#drawLine" prefHeight="33" prefWidth="33"
-                                styleClass="tool-button, line-tool-icon">
-                            <tooltip>
-                                <Tooltip text="Create a new line"/>
-                            </tooltip>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#rectangularAction" prefHeight="33" prefWidth="33"
-                                styleClass="tool-button, rectangular-icon" GridPane.columnIndex="1">
-                            <tooltip>
-                                <Tooltip text="Create a new rectangular"/>
-                            </tooltip>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#vSymmetryButtonAction" prefHeight="33" prefWidth="33"
-                                styleClass="tool-button, square-icon" GridPane.columnIndex="2">
-                            <tooltip>
-                                <Tooltip text="Create a new square"/>
-                            </tooltip>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#selectionButtonAction" prefHeight="33" prefWidth="33"
-                                styleClass="tool-button, circle-icon" GridPane.columnIndex="3">
-                            <tooltip>
-                                <Tooltip text="Create a new circle"/>
-                            </tooltip>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#dragButtonAction" prefHeight="33" prefWidth="33"
-                                styleClass="tool-button, triangle-icon" GridPane.columnIndex="4">
-                            <tooltip>
-                                <Tooltip text="Create a new triangle"/>
-                            </tooltip>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#rotateButtonAction" prefHeight="33" prefWidth="33"
-                                styleClass="tool-button, oval-icon" GridPane.columnIndex="5">
-                            <tooltip>
-                                <Tooltip text="Create a new oval"/>
-                            </tooltip>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#circlrSelectionButtonAction" prefHeight="33" prefWidth="33"
-                                styleClass="tool-button, circle-selection-icon" GridPane.columnIndex="6">
-                            <tooltip>
-                                <Tooltip text="Select a circle area"/>
-                            </tooltip>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#cropButtonAction" prefHeight="33" prefWidth="33"
-                                styleClass="tool-button, paint-bucket-icon" GridPane.columnIndex="7">
-                            <tooltip>
-                                <Tooltip text="Paint the shape with bucket color"/>
-                            </tooltip>
-                        </Button>
-                    </children>
-                </GridPane>
                 <!--<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Transform"/>-->
-                <GridPane fx:id="gridModificationTools" hgap="5.0" prefWidth="300.0" vgap="5.0">
+                <GridPane fx:id="gridModificationTools" hgap="5.0" prefWidth="350.0" vgap="5.0">
                     <children>
                         <Button mnemonicParsing="false" onAction="#textButtonAction" prefHeight="33" prefWidth="33"
                                 styleClass="tool-button, text-tool-icon">
@@ -139,26 +87,32 @@
                                 <Tooltip text="Select an area on the document"/>
                             </tooltip>
                         </Button>
+                        <Button mnemonicParsing="false" onAction="#circlrSelectionButtonAction" prefHeight="33" prefWidth="33"
+                                styleClass="tool-button, circle-selection-icon" GridPane.columnIndex="4">
+                            <tooltip>
+                                <Tooltip text="Select a circle area"/>
+                            </tooltip>
+                        </Button>
                         <Button mnemonicParsing="false" onAction="#dragButtonAction" prefHeight="33" prefWidth="33"
-                                styleClass="tool-button, translate-icon" GridPane.columnIndex="4">
+                                styleClass="tool-button, translate-icon" GridPane.columnIndex="5">
                             <tooltip>
                                 <Tooltip text="Move a layer around"/>
                             </tooltip>
                         </Button>
                         <Button mnemonicParsing="false" onAction="#rotateButtonAction" prefHeight="33" prefWidth="33"
-                                styleClass="tool-button, rotate-icon" GridPane.columnIndex="5">
+                                styleClass="tool-button, rotate-icon" GridPane.columnIndex="6">
                             <tooltip>
                                 <Tooltip text="Rotate a layer"/>
                             </tooltip>
                         </Button>
                         <Button mnemonicParsing="false" onAction="#scaleButtonAction" prefHeight="33" prefWidth="33"
-                                styleClass="tool-button, scale-icon" GridPane.columnIndex="6">
+                                styleClass="tool-button, scale-icon" GridPane.columnIndex="7">
                             <tooltip>
                                 <Tooltip text="Resize a layer"/>
                             </tooltip>
                         </Button>
                         <Button mnemonicParsing="false" onAction="#cropButtonAction" prefHeight="33" prefWidth="33"
-                                styleClass="tool-button, crop-icon" GridPane.columnIndex="7">
+                                styleClass="tool-button, crop-icon" GridPane.columnIndex="8">
                             <tooltip>
                                 <Tooltip text="Rotate a layer"/>
                             </tooltip>

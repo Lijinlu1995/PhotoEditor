@@ -1,6 +1,6 @@
 package myApp.controller;
 
-import myApp.tool.ColorSet;
+import myApp.model.tool.ColorSet;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;

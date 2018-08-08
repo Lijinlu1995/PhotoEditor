@@ -3,18 +3,18 @@ package myApp.controller;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-import myApp.dialog.ImportImageDialog;
-import myApp.base.Constants;
-import myApp.layer.CanvasN;
-import myApp.layer.ImageN;
-import myApp.layer.TextN;
-import myApp.tool.*;
-import myApp.tool.Eraser;
-import myApp.tool.settings.ToolColorSettings;
-import myApp.tool.settings.ToolFontSettings;
-import myApp.tool.settings.ToolSettingsContainer;
-import myApp.tool.settings.ToolSizeSettings;
-import myApp.workspace.Workspace;
+import myApp.model.menu.ImportImageDialog;
+import myApp.model.base.Constants;
+import myApp.model.layer.CanvasN;
+import myApp.model.layer.ImageN;
+import myApp.model.layer.TextN;
+import myApp.model.tool.*;
+import myApp.model.tool.Eraser;
+import myApp.model.tool.settings.ToolColorSettings;
+import myApp.model.tool.settings.ToolFontSettings;
+import myApp.model.tool.settings.ToolSettingsContainer;
+import myApp.model.tool.settings.ToolSizeSettings;
+import myApp.model.workspace.Workspace;
 import java.util.Optional;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -31,8 +31,6 @@ import javafx.scene.effect.SepiaTone;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.transform.Rotate;
-
-import static myApp.tool.enums.State.LINE_DRAW;
 
 public class ToolBarController {
 
@@ -316,7 +314,7 @@ public class ToolBarController {
         GridPane.setColumnSpan(effectButtonsContainer, 3);
 
         // Create a button to toggle the effect panel
-       /* Button effectsToggl = createToolButton("Effects", gridFilterTools);
+        Button effectsToggl = createToolButton("Effects", gridFilterTools);
         effectsToggl.setTooltip(new Tooltip("Open/Close effects panel"));
         effectsToggl.setPrefWidth(160);
         effectsToggl.setPrefHeight(45);
@@ -355,7 +353,7 @@ public class ToolBarController {
                 effectsContainer.setLayoutX(posX);
                 effectsContainer.setLayoutY(posY);
             }
-        });*/
+        });
 
     }
 
@@ -534,22 +532,6 @@ public class ToolBarController {
             toolbarController.displayToolSetting(null);
         }
     }
-    /* Draws a line segment.*/
-    @FXML
-    private void drawLine(ActionEvent e) {
-        Button source = (Button) e.getSource();
-
-        Workspace w = mainController.getCurrentWorkspace();
-        if (w != null) {
-            selectButton(source);
-            //w.setCurrentTool(new LineTool());
-            toolbarController.displayToolSetting(null);
-            mainController.setState(LINE_DRAW);
-        }
-    }
-    private void configureShape(Shapes shape) {
-        shape.drawShape(pane, colorPicker, slider);
-    }
 
     @FXML
     private void textButtonAction(ActionEvent e) {
@@ -658,7 +640,7 @@ public class ToolBarController {
         Workspace w = mainController.getCurrentWorkspace();
         if (w != null) {
             selectButton(source);
-            w.setCurrentTool(new myApp.tool.Rotate(w));
+            w.setCurrentTool(new myApp.model.tool.Rotate(w));
             toolbarController.displayToolSetting(null);
         }
     }
@@ -676,17 +658,6 @@ public class ToolBarController {
         }
     }
 
-    @FXML
-    private void rectangularAction(ActionEvent e) {
-        Button source = (Button) e.getSource();
-
-        Workspace w = mainController.getCurrentWorkspace();
-        if (w != null) {
-            selectButton(source);
-            w.setCurrentTool(new RectangularTool(w));
-            toolbarController.displayToolSetting(null);
-        }
-    }
 
     @FXML
     private void selectionButtonAction(ActionEvent e) {
@@ -696,6 +667,18 @@ public class ToolBarController {
         if (w != null) {
             selectButton(source);
             w.setCurrentTool(new Selection(w));
+            toolbarController.displayToolSetting(null);
+        }
+    }
+
+    @FXML
+    private void trangleSelectionAction(ActionEvent e) {
+        Button source = (Button) e.getSource();
+
+        Workspace w = mainController.getCurrentWorkspace();
+        if (w != null) {
+            selectButton(source);
+            w.setCurrentTool(new PolygonSelection(w));
             toolbarController.displayToolSetting(null);
         }
     }

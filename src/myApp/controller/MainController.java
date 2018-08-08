@@ -1,15 +1,15 @@
 package myApp.controller;
 
 import javafx.scene.shape.Circle;
-import myApp.base.Constants;
-import myApp.base.Document;
-import myApp.base.Utils;
-import myApp.base.WelcomeInvite;
-import myApp.layer.CanvasN;
-import myApp.tool.CircleSelection;
-import myApp.tool.Selection;
-import myApp.tool.enums;
-import myApp.workspace.Workspace;
+import myApp.model.base.Constants;
+import myApp.model.base.Document;
+import myApp.model.base.Utils;
+import myApp.model.base.WelcomeInvite;
+import myApp.model.layer.CanvasN;
+import myApp.model.tool.CircleSelection;
+import myApp.model.tool.Selection;
+import myApp.model.tool.enums;
+import myApp.model.workspace.Workspace;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -273,10 +273,10 @@ public class MainController implements Initializable {
                                 gc.setTransform(new Affine(
                                         canvas.localToParentTransformProperty()
                                                 .get().createInverse()));
-                                gc.clearRect(circle.getBoundsInParent().getMinX(),
+                               /* gc.clearRect(circle.getBoundsInParent().getMinX(),
                                         circle.getBoundsInParent().getMinY(),
-                                        circle.getCenterX(), circle.getCenterY());
-                                gc.setFill(Color.WHITE);
+                                        circle.getCenterX(), circle.getCenterY());*/
+                                gc.setFill(Color.TRANSPARENT);
                                 gc.fillOval(circle.getBoundsInParent().getMinX(),
                                         circle.getBoundsInParent().getMinY(),2*circle.getRadius(),2*circle.getRadius());
                             } catch (NonInvertibleTransformException ex) {

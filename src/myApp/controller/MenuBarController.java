@@ -1,12 +1,12 @@
 package myApp.controller;
 
-import myApp.dialog.NewDocument;
-import myApp.dialog.NewDocumentDialog;
-import myApp.dialog.OpenDocumentDialog;
-import myApp.dialog.ResizeDialog;
-import myApp.base.Document;
-import myApp.layer.CanvasN;
-import myApp.workspace.Workspace;
+import myApp.model.menu.NewDocument;
+import myApp.model.menu.NewDocumentDialog;
+import myApp.model.menu.OpenDocumentDialog;
+import myApp.model.menu.ResizeDialog;
+import myApp.model.base.Document;
+import myApp.model.layer.CanvasN;
+import myApp.model.workspace.Workspace;
 import java.io.File;
 import java.io.IOException;
 import java.util.Optional;
