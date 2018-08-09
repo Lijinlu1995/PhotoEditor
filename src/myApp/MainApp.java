@@ -26,7 +26,7 @@ public class MainApp extends Application {
         scene.getStylesheets().add("/styles/CSSIcons.css");
         scene.getStylesheets().add("/styles/ColorSet.css");
 
-        stage.setTitle("PhotoEiditor");
+        stage.setTitle("PhotoEditor");
         stage.getIcons().add(new Image("/img/logo.png"));
         stage.setScene(scene);
         stage.show();
