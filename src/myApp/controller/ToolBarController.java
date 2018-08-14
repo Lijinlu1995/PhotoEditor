@@ -503,6 +503,19 @@ public class ToolBarController {
         }
     }
 
+    @FXML
+    private void lineAction(ActionEvent e) {
+        Button source = (Button) e.getSource();
+
+        Workspace w = mainController.getCurrentWorkspace();
+        if (w != null) {
+            selectButton(source);
+            LineTool b = new LineTool(w);
+            w.setCurrentTool(b);
+            brushSizer.setTarget(b);
+            toolbarController.displayToolSetting(brushSettings);
+        }
+    }
     //Action when clicked on eraser button. Set the current tool with an eraser tool
 
     @FXML

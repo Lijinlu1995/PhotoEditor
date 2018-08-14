@@ -15,7 +15,7 @@
         <HBox spacing="0.0" styleClass="topMenuVBox">
             <children>
                 <!--<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add"/>-->
-                <GridPane hgap="5.0" prefWidth="120.0" vgap="5.0">
+                <GridPane hgap="5.0" prefWidth="114.0" vgap="5.0">
                     <children>
                     <Button mnemonicParsing="false" onAction="#newTextButtonAction" prefHeight="33" prefWidth="33"
                             styleClass="tool-button, text-creation">
@@ -38,7 +38,7 @@
                      </children>
                 </GridPane>
                 <!--<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Draw"/>-->
-                <GridPane hgap="5.0" prefWidth="120.0" vgap="5.0">
+                <GridPane hgap="5.0" prefWidth="114.0" vgap="5.0">
                     <children>
                         <Button mnemonicParsing="false" onAction="#brushButtonAction" prefHeight="33" prefWidth="33"
                                 styleClass="tool-button, brush-icon">
@@ -56,6 +56,28 @@
                                 prefWidth="33" styleClass="tool-button, eye-dropper-icon" GridPane.columnIndex="2">
                             <tooltip>
                                 <Tooltip text="Pick a color on a layer"/>
+                            </tooltip>
+                        </Button>
+                    </children>
+                </GridPane>
+                <GridPane hgap="5.0" prefWidth="120.0" vgap="5.0">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#lineAction" prefHeight="33" prefWidth="33"
+                                styleClass="tool-button, line-tool-icon">
+                            <tooltip>
+                                <Tooltip text="Draw a Line"/>
+                            </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#eraserButtonAction" prefHeight="33" prefWidth="33"
+                                styleClass="tool-button, rectangular-icon" GridPane.columnIndex="1">
+                            <tooltip>
+                                <Tooltip text="Draw a rectangular"/>
+                            </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#eyeDropperButtonAction" prefHeight="33"
+                                prefWidth="33" styleClass="tool-button, circle-icon" GridPane.columnIndex="2">
+                            <tooltip>
+                                <Tooltip text="Draw a circle"/>
                             </tooltip>
                         </Button>
                     </children>
