@@ -176,6 +176,20 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size: 50%;
 }
+.triangle-selection-icon
+{
+    -fx-background-image: url("../img/selection-triangle.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 75%;
+}
+
+.pentagon-selection-icon {
+    -fx-background-image: url("../img/Pentagon-selection.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 75%;
+}
 .crop-icon {
     -fx-background-image: url("../img/crop-icon.png");
     -fx-background-position: center;

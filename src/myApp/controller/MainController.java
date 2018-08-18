@@ -49,6 +49,10 @@ import javafx.scene.transform.Affine;
 import javafx.scene.transform.NonInvertibleTransformException;
 import javafx.scene.layout.StackPane;
 
+/**
+ * Main Controller for control action of main
+ * includes a welcome page and initialize
+ */
 public class MainController implements Initializable {
 
     // Stage from main
@@ -202,7 +206,6 @@ public class MainController implements Initializable {
                 Document d = getDocument(w);
                 documents.remove(d);
 
-                // TODO : save when close ?
                 // Clear
                 rightController.clearLayerBox();
                 rightController.clearHistoryBox();
@@ -210,6 +213,7 @@ public class MainController implements Initializable {
             toolboxController.clearSelectedButtons();
         });
 
+        //Support of the shortcut
         mainAnchorPane.setOnKeyPressed(keyEvent -> {
             Workspace w = getCurrentWorkspace();
 
@@ -248,7 +252,6 @@ public class MainController implements Initializable {
                                         rec.getWidth(), rec.getHeight());
                             } catch (NonInvertibleTransformException ex) {
 
-                                // TODO : Manage exceptions
                                 Logger.getLogger(MainController.class.getName())
                                         .log(Level.SEVERE, null, ex);
                             }
@@ -281,7 +284,6 @@ public class MainController implements Initializable {
                                         circle.getBoundsInParent().getMinY(),2*circle.getRadius(),2*circle.getRadius());
                             } catch (NonInvertibleTransformException ex) {
 
-                                // TODO : Manage exceptions
                                 Logger.getLogger(MainController.class.getName())
                                         .log(Level.SEVERE, null, ex);
                             }

@@ -1,5 +1,11 @@
 package myApp.model.tool;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Polygon;
 import myApp.model.tool.settings.ColorConfigurableTool;
 import myApp.model.layer.TextN;
 import myApp.model.tool.settings.FontConfigurableTool;
@@ -10,11 +16,7 @@ import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
@@ -31,31 +33,109 @@ public class TextTool extends AbstractTool implements ColorConfigurableTool, Fon
     public static Optional<String> getDialogText(String def) {
         // Create Dialog
         Dialog dialog = new Dialog<>();
-
         // Set the title
         dialog.setTitle("Please enter your text.");
 
         // Set button
         dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
 
+        dialog.setHeight(300);
+
+        GridPane grid1 = new GridPane();
+        grid1.setHgap(10);
+        grid1.setVgap(5);
         // Set text field
         GridPane grid = new GridPane();
         grid.setHgap(10);
-        grid.setVgap(10);
-        grid.setPadding(new Insets(20, 150, 10, 10));
+        grid.setVgap(5);
+        grid.setPadding(new Insets(10, 150, 10, 10));
 
         // Set prompt invite
         Label prompt = new Label("Please enter your text");
 
+        Button b0 = new Button("normal");
+        Button b1 = new Button("circle");
+        Button b2 = new Button("triangle");
+        Button b3 = new Button("polygon");
+
+        grid1.add(b1,0,0);
+        grid1.add(b2,1,0);
+        grid1.add(b3,2,0);
+        grid1.add(b0,3,0);
+        Circle circle = new Circle();
+        circle.setCenterX(155);
+        circle.setCenterY(50);
+        circle.setRadius(90);
+        circle.setFill(Color.TRANSPARENT);
+        circle.setStroke(Color.BLACK);
+        circle.setVisible(false);
+
+        Polygon triangle = new Polygon();
+        triangle.getPoints().addAll(new Double[]{
+                100.0, -50.0,
+                0.0, 140.0,
+                200.0, 140.0 });
+        triangle.setFill(Color.TRANSPARENT);
+        triangle.setStroke(Color.BLACK);
+        triangle.setVisible(false);
+
+        Polygon polygon = new Polygon();
+        polygon.getPoints().addAll(new Double[]{
+                100.0, -50.0,
+                0.0, 70.0,
+                0.0, 140.0,
+                200.0, 140.0,
+                250.0, 70.0
+        });
+        polygon.setFill(Color.TRANSPARENT);
+        polygon.setStroke(Color.BLACK);
+        polygon.setVisible(false);
         // Set the text area
         final TextArea text = new TextArea();
         if (def != null) {
             text.setText(def);
         }
 
+
         // Add elements
-        grid.add(prompt, 0, 0);
-        grid.add(text, 0, 1);
+        grid.add(grid1,0,0);
+        grid.add(prompt, 0, 1);
+        grid.add(text, 0, 2);
+        grid.add(circle,0,2);
+        grid.add(triangle,0,2);
+        grid.add(polygon,0,2);
+
+        b1.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                circle.setVisible(true);
+                triangle.setVisible(false);
+                polygon.setVisible(false);
+            }
+        });
+        b2.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                triangle.setVisible(true);
+                circle.setVisible(false);
+                polygon.setVisible(false);
+
+            }
+        });
+        b3.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                polygon.setVisible(true);
+                triangle.setVisible(false);
+                circle.setVisible(false);
+
+            }
+        });
+        b0.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                polygon.setVisible(false);
+                triangle.setVisible(false);
+                circle.setVisible(false);
+
+            }
+        });
 
         // Add to the dialog
         dialog.getDialogPane().setContent(grid);
@@ -86,14 +166,14 @@ public class TextTool extends AbstractTool implements ColorConfigurableTool, Fon
     }
 
     /* Request a dialog text input, and apply the changes to the layer parameter if
-     * it is a GEMMSText layer*/
+     * it is a Text layer*/
     private static void dialogTextValue(Node layer) {
-        // Check if the layer is a GEMMSText
+        // Check if the layer is a Text
         if (layer instanceof TextN) {
             // Get a default value for the promp dialog
             String def = ((TextN) layer).getText();
             Optional<String> result = getDialogText(def);
-            // Modify all GEMMSText layers
+            // Modify all Text layers
             if (result.isPresent()) {
                 TextN text = (TextN) layer;
                 double oldWidth = text.getBoundsInParent().getWidth();

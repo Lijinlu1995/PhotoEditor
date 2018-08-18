@@ -17,15 +17,6 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * @author Guillaume Milani
- * @date 23 May 2017
- * @brief Manage history for a GEMMS workspace
- *
- * Each time one of this class instance is notified it saves the workspace layer's
- * state. It is then possible to undo() (restore previous state) or redo() (restore
- * state before undo())
- */
 public class History implements Observer {
 
     /**

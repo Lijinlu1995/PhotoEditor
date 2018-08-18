@@ -6,6 +6,9 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
+/**
+ * LayerController for control action of Layer part
+ */
 public class LayerController {
 
     // Main controller
