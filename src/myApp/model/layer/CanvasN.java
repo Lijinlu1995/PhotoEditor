@@ -27,10 +27,6 @@ public class CanvasN extends javafx.scene.canvas.Canvas implements NodeN,
     private static int layerCount = 0;
     private String name = "Canvas " + ++layerCount;
 
-    public CanvasN() {
-        super();
-    }
-
     public CanvasN(double width, double height) {
         super(width, height);
     }
@@ -54,7 +50,6 @@ public class CanvasN extends javafx.scene.canvas.Canvas implements NodeN,
             // Cancel all tranformation before taking a snapshot
             sp.setTransform(getLocalToParentTransform().createInverse());
         } catch (NonInvertibleTransformException ex) {
-            // TODO : Manage exceptions
             Logger.getLogger(CanvasN.class.getName()).log(Level.SEVERE, null, ex);
         }
 

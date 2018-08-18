@@ -358,8 +358,6 @@ public class ToolBarController {
     }
 
     //Create a tool button and add it in the corresponding grid pane
-
-    // TODO: replace text by an image
     private Button createToolButton(String text, GridPane pane) {
         Button button = new Button(text);
 
@@ -709,7 +707,6 @@ public class ToolBarController {
     }
 
     // Action when clicked on crop button. Set the current tool with a crop tool
-
     @FXML
     private void cropButtonAction(ActionEvent e) {
         Button source = (Button) e.getSource();

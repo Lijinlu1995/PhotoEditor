@@ -482,7 +482,6 @@ public class MainController implements Initializable {
         try {
             cc.putString(Utils.serializeNodeList(nodes));
         } catch (Exception e) {
-            // TODO: manage exceptions
             e.printStackTrace();
         }
 
@@ -499,7 +498,6 @@ public class MainController implements Initializable {
         try {
             return Utils.deserializeNodeList(serializedObject);
         } catch (Exception e) {
-            // TODO: manage exceptions
             e.printStackTrace();
             return null;
         }

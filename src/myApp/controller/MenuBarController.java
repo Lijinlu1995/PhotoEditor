@@ -118,7 +118,6 @@ public class MenuBarController {
         if (w != null) {
             // Get current tab
             Tab tab = mainController.getCurrentTab();
-
             // Research document with workspace
             Document d = mainController.getDocument(w);
 
@@ -140,8 +139,6 @@ public class MenuBarController {
     /**
      * Action when clicked on export button. Export the current workspace as an
      * image. PNG format.
-     *
-     * @param e
      */
     @FXML
     protected void exportButtonAction(ActionEvent e) {
@@ -149,7 +146,6 @@ public class MenuBarController {
         if (w != null) {
             // Research document with workspace
             Document d = mainController.getDocument(w);
-
             // export document as image
             if (d != null) {
                 try {

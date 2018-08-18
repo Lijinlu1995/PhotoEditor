@@ -5,8 +5,6 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 /**
- * <h1>OpenDocumentDialog</h1>
- *
  * Shows a dialog that allow users to open a project file. (*.mype)
  */
 public class OpenDocumentDialog {
