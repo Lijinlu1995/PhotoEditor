@@ -16,6 +16,7 @@ public abstract class AbstractTool implements Tool {
         notifier.addObserver(workspace.getHistory());
     }
 
+
     @Override
     public abstract void mousePressed(double x, double y);
 
