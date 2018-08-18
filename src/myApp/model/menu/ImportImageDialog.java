@@ -53,7 +53,6 @@ public class ImportImageDialog {
                     BufferedImage bufferedImage = ImageIO.read(file);
                     image = SwingFXUtils.toFXImage(bufferedImage, null);
                 } catch (IOException ex) {
-                    // TODO : manage exceptions
                     Logger.getLogger(MainController.class.getName())
                             .log(Level.SEVERE, null, ex);
                 }

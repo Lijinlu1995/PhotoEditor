@@ -27,13 +27,7 @@ public class TextN extends javafx.scene.text.Text implements NodeN,
     private String name = "Text " + ++layerCount;
     public static final int DEFAULT_SIZE = 12;
 
-    public TextN() {
-        super();
-    }
 
-    public TextN(String text) {
-        this(0, 0, text);
-    }
 
     public TextN(double x, double y, String text) {
         super(x, y, text);
@@ -112,7 +106,7 @@ public class TextN extends javafx.scene.text.Text implements NodeN,
         }
     }
 
-    //Read all informations for serialization
+    //Read all information for serialization
 
     private void readObject(ObjectInputStream s) throws IOException,
             ClassNotFoundException {

@@ -19,7 +19,7 @@ import javafx.scene.text.FontWeight;
 import javafx.util.converter.IntegerStringConverter;
 
 /*
- * Display a dialog that allow users to set a size and a backgoud color for the
+ * Display a dialog that allow users to set a size and a background color for the
  * document (Workspace).
  */
 public class NewDocumentDialog {

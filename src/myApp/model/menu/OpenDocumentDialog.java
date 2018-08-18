@@ -14,12 +14,9 @@ public class OpenDocumentDialog {
 
     /**
      * Constructor
-     *
-     * @param s stage for FileChooser
      */
     public OpenDocumentDialog(Stage s) {
         stage = s;
-
         // Init file chooser
         fileChooser = new FileChooser();
         fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
@@ -28,11 +25,7 @@ public class OpenDocumentDialog {
                 new FileChooser.ExtensionFilter("MYPE", "*.mype"));
     }
 
-    /**
-     * Shows a new file open dialog
-     *
-     * @return File
-     */
+    //Shows a new file open dialog
     public File showAndWait() {
         return fileChooser.showOpenDialog(stage);
     }
