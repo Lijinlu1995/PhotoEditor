@@ -85,7 +85,6 @@ public class Document {
 
     //SaveAs the workspace MYPE
     public void saveAs() throws FileNotFoundException, IOException {
-
         // Set FileChooser
         FileChooser fileChooser;
         fileChooser = new FileChooser();
@@ -94,19 +93,15 @@ public class Document {
         fileChooser.getExtensionFilters().add(
                 new ExtensionFilter("MYPE", "*.mype"));
         fileChooser.setInitialFileName("*.mype");
-
         // Shows the dialog and waits for the user response
         currentFile = fileChooser.showSaveDialog(stage);
         if (currentFile != null) {
             if (currentFile.getName().endsWith(".mype")) {
                 try (ObjectOutputStream out = new ObjectOutputStream(
-                        new GZIPOutputStream(
-                                new FileOutputStream(currentFile)
-                        )
+                        new GZIPOutputStream(new FileOutputStream(currentFile))
                 )) {
                     out.writeObject(workspace);
                 }
-
                 name = currentFile.getName();
             }
         }
@@ -115,7 +110,6 @@ public class Document {
     //Export the workspace as an image
 
     public void export() throws IOException {
-
         // Set fileChooser
         FileChooser fileChooser;
         fileChooser = new FileChooser();
@@ -123,27 +117,21 @@ public class Document {
         fileChooser.setTitle("Export");
         fileChooser.getExtensionFilters().addAll(
                 new ExtensionFilter("All Files", "*.*"));
-
         // Shows the dialog and waits for the user response
         File file = fileChooser.showSaveDialog(stage);
         if (file != null) {
-
             // Get name and extension
             String fileName = file.getName();
             String ext = fileName.substring(fileName.lastIndexOf(".") + 1);
-
             // Take a snapshot
             WritableImage writableImage = new WritableImage((int) workspace.width(),
                     (int) workspace.height());
             workspace.snapshot(null, writableImage);
             BufferedImage image = SwingFXUtils.fromFXImage(writableImage, null);
-
             // Write image
             switch (ext) {
                 case "png":
-                    ImageIO.write(image, "png", file);
-                    break;
-
+                    ImageIO.write(image, "png", file); break;
                 case "jpg":
                     BufferedImage convertedImg = new BufferedImage(image.getWidth(),
                             image.getHeight(), BufferedImage.TYPE_3BYTE_BGR);
@@ -154,15 +142,11 @@ public class Document {
 
                     ImageIO.write(convertedImg, "jpg", file);
                     break;
-
                 case "gif":
-                    ImageIO.write(image, "gif", file);
-                    break;
-
+                    ImageIO.write(image, "gif", file); break;
                 default:
                     // Manage exceptions
-                    System.out.println("This is not a supported extension");
-                    break;
+                    System.out.println("This is not a supported extension"); break;
             }
         }
     }

@@ -138,9 +138,6 @@ public class History implements Observer {
         }
     }
 
-    /**
-     * @return an observable list of history's thumbnails
-     */
     public ObservableList<Image> getImagesHistory() {
         return imagesHistory;
     }

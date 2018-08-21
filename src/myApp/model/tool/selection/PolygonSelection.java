@@ -1,4 +1,4 @@
-package myApp.model.tool;
+package myApp.model.tool.selection;
 
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
@@ -11,6 +11,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
 import javafx.util.Duration;
+import myApp.model.tool.AbstractTool;
+import myApp.model.tool.PositionMapper;
 import myApp.model.workspace.Workspace;
 
 import java.util.ArrayList;

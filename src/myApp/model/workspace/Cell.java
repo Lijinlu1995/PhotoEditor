@@ -3,10 +3,7 @@ package myApp.model.workspace;
 import javafx.scene.layout.HBox;
 
 /**
- * <h1>CELL</h1>
  * Cell object are used to represent elements in a LayerList.
- *
- * @param <T> the type of element represented
  */
 public abstract class Cell<T> extends HBox {
     // The cell index in the displayed LayerList panel
@@ -21,8 +18,6 @@ public abstract class Cell<T> extends HBox {
 
     /**
      * Set the Cell current index inside the displayed LayerList the panel
-     *
-     * @param i the index
      */
     public void setIndex(int i) {
         index = i;
@@ -30,8 +25,6 @@ public abstract class Cell<T> extends HBox {
 
     /**
      * Get the current index of the cell inside the displayed LayerList Panel
-     *
-     * @return the index
      */
     public int getIndex() {
         return index;
@@ -53,8 +46,6 @@ public abstract class Cell<T> extends HBox {
 
     /**
      * Check if the Cell is selected
-     *
-     * @return whether the cell is selected or not
      */
     public boolean isSelected() {
         return selected;
@@ -62,8 +53,6 @@ public abstract class Cell<T> extends HBox {
 
     /**
      * Get the T element targeted by the Cell
-     *
-     * @return the T target
      */
     public T getTarget() {
         return target;
@@ -71,8 +60,6 @@ public abstract class Cell<T> extends HBox {
 
     /**
      * Set the name of the layer.
-     *
-     * @param name
      */
     public abstract void setLayerName(String name);
 }

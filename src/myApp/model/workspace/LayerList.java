@@ -25,8 +25,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 /**
- * <h1>LayerList</h1>
- *
  * A LayerList object is a UI component that displays the content of a targeted
  * ObservableList as a list of layers, each element of the list acting as a layer.
  *
@@ -39,12 +37,10 @@ import javafx.scene.layout.VBox;
  * Cells that are used by the LayerList, it is possible to set a cell factory for the
  * LayerList to used. It is done by implementing the ICellFactory interface and by
  * passing it in the constructor, or using the appropriate method.
- *
- * @param <T> the type of elements represented
  */
 public class LayerList<T> extends VBox {
 
-    // List taht the LayerList must observe 
+    // List the the LayerList must observe
     private ObservableList<T> targetList;
     // The cell factory used to create cells in the LayerList panel
     private ICellFactory factory;
@@ -62,8 +58,6 @@ public class LayerList<T> extends VBox {
     /**
      * Constructor. Sets the ObservableList to target. The default cell factory will
      * be of the DefaultCellFactory class.
-     *
-     * @param targetList the List of elements the LayerList must display
      */
     public LayerList(ObservableList<T> targetList) {
         this(targetList, new DefaultCellFactory<T>());
@@ -71,9 +65,6 @@ public class LayerList<T> extends VBox {
 
     /**
      * Constructor. Sets the ObservableList to target and the cell factory to use.
-     *
-     * @param targetList the List of elements the LayerList must display
-     * @param factory the ICellFactory implementation to use
      */
     public LayerList(ObservableList<T> targetList, ICellFactory<T> factory) {
         // Set attributes
@@ -273,8 +264,6 @@ public class LayerList<T> extends VBox {
      * Returns the Cell that targets this element in the targeList if it already has
      * been created. If there is none, for example when a new layer has been added,
      * it create a new Cell, adds it ti the list of cells, and return it.
-     *
-     * @return the Cell instance targeting this element in the list
      */
     private Cell<T> getCell(T element) {
 
@@ -391,8 +380,6 @@ public class LayerList<T> extends VBox {
      * Add a cell to the list of select cells keeping the list sorted from the bottom
      * layer at the beginning to the top layer at the end. It also set said cell to
      * select calling it select method.
-     *
-     * @param cell the cell to add
      */
     private void addSelectedCellSorted(Cell<T> cell) {
         cell.select();

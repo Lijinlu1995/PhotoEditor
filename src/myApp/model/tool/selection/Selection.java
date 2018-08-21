@@ -1,5 +1,8 @@
-package myApp.model.tool;
+package myApp.model.tool.selection;
 
+import myApp.model.tool.AbstractTool;
+import myApp.model.tool.PositionMapper;
+import myApp.model.workspace.Workspace;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -8,13 +11,15 @@ import javafx.geometry.Point2D;
 import javafx.geometry.Point3D;
 import javafx.scene.Cursor;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
-import myApp.model.workspace.Workspace;
 
-public class CircleSelection extends AbstractTool {
+//The Selection tool class. Allow users to select an area of workspace with a box.
+public class Selection extends AbstractTool {
+
     // Selection box
-    private final Circle circle;
+    private final Rectangle rectangle;
+
     // Last mouse position
     private double lastX;
     private double lastY;
@@ -23,22 +28,23 @@ public class CircleSelection extends AbstractTool {
     private boolean isMoved;
     private boolean isDragged;
 
-    public CircleSelection(Workspace w) {
+    public Selection(Workspace w) {
         super(w);
 
         // Set the cursor
         workspace.getLayerTool().setCursor(Cursor.CROSSHAIR);
 
         // Create selection box
-        circle = new Circle(0, 0, 0, Color.TRANSPARENT);
-        circle.setVisible(true);
-        circle.setStroke(Color.BLACK);
-        circle.setStrokeWidth(1.8);
-        circle.getStrokeDashArray().addAll(4d, 12d);
+        rectangle = new Rectangle(0, 0, 0, 0);
+        rectangle.setVisible(true);
+        rectangle.setFill(Color.TRANSPARENT);
+        rectangle.setStroke(Color.BLACK);
+        rectangle.setStrokeWidth(1.8);
+        rectangle.getStrokeDashArray().addAll(4d, 12d);
 
         // Stroke animation
         final double maxOffset
-                = circle.getStrokeDashArray().stream()
+                = rectangle.getStrokeDashArray().stream()
                 .reduce(
                         0d,
                         (a, b) -> a + b
@@ -48,7 +54,7 @@ public class CircleSelection extends AbstractTool {
                 new KeyFrame(
                         Duration.ZERO,
                         new KeyValue(
-                                circle.strokeDashOffsetProperty(),
+                                rectangle.strokeDashOffsetProperty(),
                                 0,
                                 Interpolator.LINEAR
                         )
@@ -56,7 +62,7 @@ public class CircleSelection extends AbstractTool {
                 new KeyFrame(
                         Duration.seconds(1),
                         new KeyValue(
-                                circle.strokeDashOffsetProperty(),
+                                rectangle.strokeDashOffsetProperty(),
                                 maxOffset,
                                 Interpolator.LINEAR
                         )
@@ -71,16 +77,18 @@ public class CircleSelection extends AbstractTool {
     @Override
     public void mousePressed(double x, double y) {
 
-        Point3D p = PositionMapper.convert(circle, new Point3D(x, y, 0));
+        Point3D p = PositionMapper.convert(rectangle, new Point3D(x, y, 0));
 
         // Create a selection box
-        if (!circle.contains(new Point2D(p.getX(), p.getY()))) {
+        if (!rectangle.contains(new Point2D(p.getX(), p.getY()))) {
 
-            workspace.getLayerTool().getChildren().remove(circle);
-            workspace.getLayerTool().getChildren().add(circle);
-            circle.setCenterX(x);
-            circle.setCenterY(y);
-            circle.setRadius(0);
+            workspace.getLayerTool().getChildren().remove(rectangle);
+            workspace.getLayerTool().getChildren().add(rectangle);
+            rectangle.setWidth(0);
+            rectangle.setHeight(0);
+            rectangle.setX(x);
+            rectangle.setY(y);
+
             workspace.getLayerTool().setCursor(Cursor.NE_RESIZE);
 
             isDragged = true;
@@ -101,32 +109,30 @@ public class CircleSelection extends AbstractTool {
 
         // Resize the selection box
         if (isDragged) {
-
-            double width = x - circle.getCenterX();
-            double height = y - circle.getCenterY();
+            double width = x - rectangle.getX();
+            double height = y - rectangle.getY();
 
             if (width < 0) {
-                circle.setTranslateX(x - circle.getCenterX());
+                rectangle.setTranslateX(x - rectangle.getX());
             } else {
-                circle.setTranslateX(0);
+                rectangle.setTranslateX(0);
             }
 
             if (height < 0) {
-                circle.setTranslateY(y - circle.getCenterY());
+                rectangle.setTranslateY(y - rectangle.getY());
             } else {
-                circle.setTranslateY(0);
+                rectangle.setTranslateY(0);
             }
 
-            circle.setRadius(Math.sqrt(width*width + height*height));
-          /*  circle.setWidth(Math.abs(width));
-            circle.setHeight(Math.abs(height));*/
+            rectangle.setWidth(Math.abs(width));
+            rectangle.setHeight(Math.abs(height));
         } // Moving the selection box
         else if (isMoved) {
             double addX = x - lastX;
             double addY = y - lastY;
 
-            circle.setTranslateX(circle.getTranslateX() + addX);
-            circle.setTranslateY(circle.getTranslateY() + addY);
+            rectangle.setTranslateX(rectangle.getTranslateX() + addX);
+            rectangle.setTranslateY(rectangle.getTranslateY() + addY);
 
             lastX = x;
             lastY = y;
@@ -141,8 +147,9 @@ public class CircleSelection extends AbstractTool {
         workspace.getLayerTool().setCursor(Cursor.DEFAULT);
     }
 
-    public Circle getCircle() {
-        return circle;
+    //Get selection box
+    public Rectangle getRectangle() {
+        return rectangle;
     }
 
     @Override

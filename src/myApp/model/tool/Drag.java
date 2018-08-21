@@ -25,7 +25,7 @@ public class Drag extends AbstractTool {
     private double workspaceHeight;
     private double workspaceWidth;
     //Delta for automatic alignement
-    private final double DELTA = 30;
+    private final double DELTA = 50;
 
     public Drag(Workspace w) {
         super(w);

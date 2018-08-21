@@ -3,8 +3,6 @@ package myApp.model.workspace;
 import javafx.collections.ObservableList;
 
 /**
- * <h1>DefaultCellFactory</h1>
- *
  * ICellFactory implementation to create DefaultCell objects.
  */
 public class DefaultCellFactory<T> implements ICellFactory<T> {

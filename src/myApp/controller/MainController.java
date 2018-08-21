@@ -6,8 +6,8 @@ import myApp.model.base.Document;
 import myApp.model.base.Utils;
 import myApp.model.base.WelcomeInvite;
 import myApp.model.layer.CanvasN;
-import myApp.model.tool.CircleSelection;
-import myApp.model.tool.Selection;
+import myApp.model.tool.selection.CircleSelection;
+import myApp.model.tool.selection.Selection;
 import myApp.model.tool.enums;
 import myApp.model.workspace.Workspace;
 

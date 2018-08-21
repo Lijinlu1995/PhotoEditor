@@ -11,11 +11,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 /**
- * <h1>DefaultCell</h1>
- *
- * Default Cell implementation for the GEMMS application.
- *
- * @param <T> the type of elements represented
+ * Default Cell implementation for theapplication.
  */
 public class DefaultCell<T> extends Cell<T> {
 
