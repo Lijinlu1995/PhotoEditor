@@ -86,6 +86,7 @@ public abstract class DrawTool extends AbstractTool implements SizeConfigurableT
         mouseMoved(x, y);
 
         if (started) {
+
             // Get the selected layers of the workspace
             List<Node> layers = workspace.getCurrentLayers();
 
